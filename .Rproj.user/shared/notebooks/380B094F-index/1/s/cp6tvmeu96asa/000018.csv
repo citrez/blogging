@@ -1,7 +1,0 @@
-"0","  lyric_text <- rvest::html_session(url) %>% 
-  rvest::follow_link(i = i) %>% 
-  rvest::html_nodes("".text-center div"") %>% #css seletor of class text-center, element div
-  rvest::html_text()
-"
-"2","Navigating to ../lyrics/eminem/itsok.html
-"

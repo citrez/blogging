@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ezra Citrons Website</title>
+    <link>/</link>
+    <description>Recent content on Ezra Citrons Website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 22 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Will the real scrapy please stand up</title>
+      <link>/2021/03/22/lyrics-scrape/</link>
+      <pubDate>Mon, 22 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/2021/03/22/lyrics-scrape/</guid>
+      <description>Scraping lyrics Title puns aside, I’ll be using the rvest package to scrape all Eminem song lyrics from here
+library(rvest) ## Loading required package: xml2 library(stringr) library(dplyr) ## ## Attaching package: &amp;#39;dplyr&amp;#39; ## The following objects are masked from &amp;#39;package:stats&amp;#39;: ## ## filter, lag ## The following objects are masked from &amp;#39;package:base&amp;#39;: ## ## intersect, setdiff, setequal, union url &amp;lt;- &amp;quot;https://www.azlyrics.com/e/eminem.html&amp;quot; html &amp;lt;- xml2::read_html(url) links_to_songs &amp;lt;- html %&amp;gt;% html_nodes(css = &amp;quot;#listAlbum a&amp;quot;) length(links_to_songs) ## [1] 396 links_to_songs[length(links_to_songs)] ## {xml_nodeset (1)} ## [1] &amp;lt;a href=&amp;quot;.</description>
+    </item>
+    
+    <item>
+      <title>Eminem Lyric analysis with R</title>
+      <link>/2020/12/01/eminem-lyric-analysis-with-r/</link>
+      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
+      
+      <guid>/2020/12/01/eminem-lyric-analysis-with-r/</guid>
+      <description>Text Mining with Eminem Text mining promises a lot. The ability to get a machine to understand the main topics in a text, or how positive the writer was about the subject could have applications as far reaching as law, analysing survey responces, stock market analysis. I usually favor simplicity over perfection. I’d rather have a 6/10 model that I can interpret and (crucially) explain than a 9/10 model that no one can get their head around.</description>
+    </item>
+    
+    <item>
+      <title>About Me</title>
+      <link>/about/</link>
+      <pubDate>Sat, 21 Mar 2020 21:48:51 -0700</pubDate>
+      
+      <guid>/about/</guid>
+      <description>Hi, welcome to my blog! I&amp;rsquo;m a maths graduate now working as a data scientist in the city of London. I&amp;rsquo;ll be using this blog to write up topics that i find interesting, or just code that I find elegant and occasionally just general musings. Feel free to leave comments a get involved.
+blogdown package. The theme was forked from @jrutheiser/hugo-lithium-theme and modified by Yihui Xie.</description>
+    </item>
+    
+    <item>
+      <title>Ezra Citron</title>
+      <link>/cv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/cv/</guid>
+      <description>+447960085010 ~ 31 Cheyne Walk, London, NW4 3QH ~ ezracitron@gmail.com
+Education Christ’s College, University of Cambridge - Economics Adv. Dip Sept 2018- July 2019 Modules include: Monetary and International Macroeconomics, Game Theory, Advanced Econometrics I &amp;amp; II
+King’s College London- BSc Mathematics
+Sept 2015 - 2018
+1st Class Honours (75% avg.) Modules include: Financial Mathematics, Probability &amp;amp; Statistics, Linear Models &amp;amp; Regression Analysis
+Hasmonean High School 2007 - 2014 A Level: Mathematics (A) Further Mathematics (A) Physics (A)</description>
+    </item>
+    
+    <item>
+      <title>Resources</title>
+      <link>/resources/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/</guid>
+      <description>Here is a collection of things that i use. I hope to update this regularly
+R.  R for Data Science for me is the definitive guide to Data Science in R. It is both highly approachable and can really get you quite far along with your data needs.
+ The resource for building package in R.R Packages by Hadley Wickham.
+   Bloggers  Julia Silge has an incredible youtube channel, taking you through all things tidymodelling.</description>
+    </item>
+    
+  </channel>
+</rss>

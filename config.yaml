@@ -14,12 +14,21 @@ permalinks:
   post: /:year/:month/:day/:slug/
 menu:
   main:
+    - name: CV
+      url: /cv/
+      
+    - name: Resources
+      url: /resources
+      
     - name: About
       url: /about/
+      
     - name: GitHub
-      url: https://github.com/rstudio/blogdown
+      url: https://github.com/citrez
+      
     - name: Twitter
       url: https://twitter.com/rstudio
+      
 params:
   MathJaxCDN: //cdnjs.cloudflare.com/ajax/libs
   MathJaxVersion: 2.7.5

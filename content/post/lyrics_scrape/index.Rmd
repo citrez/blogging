@@ -1,0 +1,130 @@
+---
+title: Will the real scrapy please stand up
+author: R package build
+date: '2021-03-22'
+slug: lyrics-scrape
+categories: [webscraping]
+tags: []
+---
+
+# Scraping lyrics
+
+Title puns aside, I'll be using the `rvest` package to scrape all Eminem song lyrics from [here](www.azlyrics.com)
+
+```{r scrape}
+library(rvest)
+library(stringr)
+library(dplyr)
+url <- "https://www.azlyrics.com/e/eminem.html"
+html <- xml2::read_html(url)
+links_to_songs <- html %>% html_nodes(css = "#listAlbum a") 
+
+length(links_to_songs)
+links_to_songs[length(links_to_songs)]
+
+ rvest::html_session(url) %>% 
+  rvest::html_nodes(css = "#listAlbum a") 
+
+rvest::html_session(url) %>% 
+  rvest::follow_link(css = "#listAlbum")
+  
+
+
+extract_song_and_lyrics <- function(i) {
+  
+  lyric_text <- rvest::html_session(url) %>% 
+  rvest::follow_link(i = i) %>% 
+  rvest::html_nodes(".text-center div") %>% #css seletor of class text-center, element div
+  rvest::html_text()
+  
+  lyric_text <- 
+    lyric_text[ str_detect(lyric_text,"Android\\|webOS\\|iPhone",negate = T)] #filtering out sections i dont want
+  
+  song_name <- lyric_text[lyric_text %>% str_detect("lyrics$")]
+  
+  # Assume the longest section is the actual lyrics
+  filtered_lyric_text <-
+    lyric_text[str_length(lyric_text) == max(str_length(lyric_text))] #work out how todo using which
+  
+  df <- tibble::tibble(lyrics = filtered_lyric_text, song = song_name)
+  
+  Sys.sleep(5)
+  
+  return(df)
+  
+  
+}
+
+```
+
+We will also need to clean up these columns using regex
+```{r}
+parse_lyrics <- function(x) {
+
+str_replace_all(x, "[\r\n]"," " ) %>%
+  str_squish() # deletes repeated white space
+}
+
+parse_songs <- function(x) {
+  
+  str_remove_all(x,"[:punct:]| lyrics")
+  
+}
+
+```
+
+Now that we have our function to get the lyrics `extract_lyrics_from_link` and `parse_lyrics` to clean it up, we can simply loop over the number of songs on the website, and save all the lyrics. Ahh, the satisfaction of running a loop...
+
+Theres one more step i want to take before i run the loop, the last thing is for everything to work great for the first 200 songs, and then i get an error on the 201st song and i need to start the scrape again. 
+So i use this great function called `possibly()` from the `purrr` package. Possibly (along with similar function safelyt and quitely) are all functions which update the behaviour or other functions, so that if (read: when) something goes wrong in your code, R doesnt have a strop, and halt your code, loosing all your progress, you can decide its behavior. Here, i will tell R that if i dont get the lyrics, song dataframe i want, just retrun an empty one and add it to the list. The quiet = F just tells say "even though i dont want the error to ruin everything, I still want to hear about it".
+```{r}
+
+library(purrr)
+
+`+`(1,1)
+
+
+`possibly+` <- possibly(`+`,otherwise = '17',quiet = F) 
+`possibly+`(1,'hi')
+
+```
+
+
+```{r}
+
+library(purrr)
+
+possibly_extract_song_and_lyrics<- possibly(extract_song_and_lyrics,
+                                    otherwise = tibble::tibble(lyrics = character(0),song = character(0)),
+                                    quiet = F)
+
+```
+
+This is one of those many moments where the tidyverse feel like it has the perfect function. 
+The purrr package has this useful function which applies my `possibly_extract_song_and_lyrics` function to each 36,37,38.. each of these functions return a dataframe, map_dfr sticks all those 395 mini dataframes together.  
+
+```{r}
+
+library(readr)
+
+
+# for (i in 42:42) {
+#   
+#   readr::write_csv(possibly_extract_song_and_lyrics(i),paste0("../../data/",i,".csv"))
+#   
+# }
+
+df <- purrr::map_dfr( list.files("../../data",full.names = T),read_csv  )
+
+```
+
+I then save all the songs locally, so i dont need to re download them every time
+now lets clean everything up with a bunch of parsing functions for the messy song and lyrics columns.
+
+```{r}
+df <- df %>%
+ mutate(
+   lyrics = parse_lyrics(lyrics),
+   song = parse_songs(song)
+ )
+```

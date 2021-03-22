@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.82.0" />
+
+
+<title>Will the real scrapy please stand up - Ezra Citrons Website</title>
+<meta property="og:title" content="Will the real scrapy please stand up - Ezra Citrons Website">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="/cv/">CV</a></li>
+    
+    <li><a href="https://github.com/citrez">GitHub</a></li>
+    
+    <li><a href="/resources">Resources</a></li>
+    
+    <li><a href="https://twitter.com/rstudio">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">5 min read</span>
+    
+
+    <h1 class="article-title">Will the real scrapy please stand up</h1>
+
+    
+    <span class="article-date">2021-03-22</span>
+    
+
+    <div class="article-content">
+      
+
+
+<div id="scraping-lyrics" class="section level1">
+<h1>Scraping lyrics</h1>
+<p>Title puns aside, I’ll be using the <code>rvest</code> package to scrape all Eminem song lyrics from <a href="www.azlyrics.com">here</a></p>
+<pre class="r"><code>library(rvest)</code></pre>
+<pre><code>## Loading required package: xml2</code></pre>
+<pre class="r"><code>library(stringr)
+library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>url &lt;- &quot;https://www.azlyrics.com/e/eminem.html&quot;
+html &lt;- xml2::read_html(url)
+links_to_songs &lt;- html %&gt;% html_nodes(css = &quot;#listAlbum a&quot;) 
+
+length(links_to_songs)</code></pre>
+<pre><code>## [1] 396</code></pre>
+<pre class="r"><code>links_to_songs[length(links_to_songs)]</code></pre>
+<pre><code>## {xml_nodeset (1)}
+## [1] &lt;a href=&quot;../lyrics/eminem/youcantbackdown.html&quot; target=&quot;_blank&quot;&gt;You Can&#39;t ...</code></pre>
+<pre class="r"><code> rvest::html_session(url) %&gt;% 
+  rvest::html_nodes(css = &quot;#listAlbum a&quot;) </code></pre>
+<pre><code>## {xml_nodeset (396)}
+##  [1] &lt;a href=&quot;../lyrics/eminem/infinite.html&quot; target=&quot;_blank&quot;&gt;Infinite&lt;/a&gt;
+##  [2] &lt;a href=&quot;../lyrics/eminem/wegointerlude.html&quot; target=&quot;_blank&quot;&gt;W.E.G.O. ( ...
+##  [3] &lt;a href=&quot;../lyrics/eminem/itsok.html&quot; target=&quot;_blank&quot;&gt;It&#39;s Ok&lt;/a&gt;
+##  [4] &lt;a href=&quot;../lyrics/eminem/313.html&quot; target=&quot;_blank&quot;&gt;313&lt;/a&gt;
+##  [5] &lt;a href=&quot;../lyrics/eminem/tonight.html&quot; target=&quot;_blank&quot;&gt;Tonight&lt;/a&gt;
+##  [6] &lt;a href=&quot;../lyrics/eminem/maxine.html&quot; target=&quot;_blank&quot;&gt;Maxine&lt;/a&gt;
+##  [7] &lt;a href=&quot;../lyrics/eminem/openmic.html&quot; target=&quot;_blank&quot;&gt;Open Mic&lt;/a&gt;
+##  [8] &lt;a href=&quot;../lyrics/eminem/never2far.html&quot; target=&quot;_blank&quot;&gt;Never 2 Far&lt;/a&gt;
+##  [9] &lt;a href=&quot;../lyrics/eminem/searchin.html&quot; target=&quot;_blank&quot;&gt;Searchin&#39;&lt;/a&gt;
+## [10] &lt;a href=&quot;../lyrics/eminem/backstabber.html&quot; target=&quot;_blank&quot;&gt;Backstabber&lt;/a&gt;
+## [11] &lt;a href=&quot;../lyrics/eminem/jealousywoesii.html&quot; target=&quot;_blank&quot;&gt;Jealousy  ...
+## [12] &lt;a href=&quot;../lyrics/eminem/introslimshady.html&quot; target=&quot;_blank&quot;&gt;Intro (Sl ...
+## [13] &lt;a href=&quot;../lyrics/eminem/lowdowndirty.html&quot; target=&quot;_blank&quot;&gt;Low, Down,  ...
+## [14] &lt;a href=&quot;../lyrics/eminem/ifihad.html&quot; target=&quot;_blank&quot;&gt;If I Had...&lt;/a&gt;
+## [15] &lt;a href=&quot;../lyrics/eminem/justdontgiveafuck.html&quot; target=&quot;_blank&quot;&gt;Just D ...
+## [16] &lt;a href=&quot;../lyrics/eminem/mommyskit.html&quot; target=&quot;_blank&quot;&gt;Mommy (Skit)&lt;/a&gt;
+## [17] &lt;a href=&quot;../lyrics/eminem/justthetwoofus.html&quot; target=&quot;_blank&quot;&gt;Just The  ...
+## [18] &lt;a href=&quot;../lyrics/eminem/noonesillerthanme.html&quot; target=&quot;_blank&quot;&gt;No One ...
+## [19] &lt;a href=&quot;../lyrics/eminem/murdermurder.html&quot; target=&quot;_blank&quot;&gt;Murder Murd ...
+## [20] &lt;a href=&quot;../lyrics/eminem/publicserviceannouncementskit.html&quot; target=&quot;_b ...
+## ...</code></pre>
+<pre class="r"><code>rvest::html_session(url) %&gt;% 
+  rvest::follow_link(css = &quot;#listAlbum&quot;)</code></pre>
+<pre><code>## Navigating to NA</code></pre>
+<pre><code>## Warning in request_GET(x, url, ...): Not Found (HTTP 404).</code></pre>
+<pre><code>## &lt;session&gt; https://www.azlyrics.com/e/NA
+##   Status: 404
+##   Type:   text/html
+##   Size:   14619</code></pre>
+<pre class="r"><code>extract_song_and_lyrics &lt;- function(i) {
+  
+  lyric_text &lt;- rvest::html_session(url) %&gt;% 
+  rvest::follow_link(i = i) %&gt;% 
+  rvest::html_nodes(&quot;.text-center div&quot;) %&gt;% #css seletor of class text-center, element div
+  rvest::html_text()
+  
+  lyric_text &lt;- 
+    lyric_text[ str_detect(lyric_text,&quot;Android\\|webOS\\|iPhone&quot;,negate = T)] #filtering out sections i dont want
+  
+  song_name &lt;- lyric_text[lyric_text %&gt;% str_detect(&quot;lyrics$&quot;)]
+  
+  # Assume the longest section is the actual lyrics
+  filtered_lyric_text &lt;-
+    lyric_text[str_length(lyric_text) == max(str_length(lyric_text))] #work out how todo using which
+  
+  df &lt;- tibble::tibble(lyrics = filtered_lyric_text, song = song_name)
+  
+  Sys.sleep(5)
+  
+  return(df)
+  
+  
+}</code></pre>
+<p>We will also need to clean up these columns using regex</p>
+<pre class="r"><code>parse_lyrics &lt;- function(x) {
+
+str_replace_all(x, &quot;[\r\n]&quot;,&quot; &quot; ) %&gt;%
+  str_squish() # deletes repeated white space
+}
+
+parse_songs &lt;- function(x) {
+  
+  str_remove_all(x,&quot;[:punct:]| lyrics&quot;)
+  
+}</code></pre>
+<p>Now that we have our function to get the lyrics <code>extract_lyrics_from_link</code> and <code>parse_lyrics</code> to clean it up, we can simply loop over the number of songs on the website, and save all the lyrics. Ahh, the satisfaction of running a loop…</p>
+<p>Theres one more step i want to take before i run the loop, the last thing is for everything to work great for the first 200 songs, and then i get an error on the 201st song and i need to start the scrape again.
+So i use this great function called <code>possibly()</code> from the <code>purrr</code> package. Possibly (along with similar function safelyt and quitely) are all functions which update the behaviour or other functions, so that if (read: when) something goes wrong in your code, R doesnt have a strop, and halt your code, loosing all your progress, you can decide its behavior. Here, i will tell R that if i dont get the lyrics, song dataframe i want, just retrun an empty one and add it to the list. The quiet = F just tells say “even though i dont want the error to ruin everything, I still want to hear about it”.</p>
+<pre class="r"><code>library(purrr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;purrr&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:rvest&#39;:
+## 
+##     pluck</code></pre>
+<pre class="r"><code>`+`(1,1)</code></pre>
+<pre><code>## [1] 2</code></pre>
+<pre class="r"><code>`possibly+` &lt;- possibly(`+`,otherwise = &#39;17&#39;,quiet = F) 
+`possibly+`(1,&#39;hi&#39;)</code></pre>
+<pre><code>## Error: non-numeric argument to binary operator</code></pre>
+<pre><code>## [1] &quot;17&quot;</code></pre>
+<pre class="r"><code>library(purrr)
+
+possibly_extract_song_and_lyrics&lt;- possibly(extract_song_and_lyrics,
+                                    otherwise = tibble::tibble(lyrics = character(0),song = character(0)),
+                                    quiet = F)</code></pre>
+<p>This is one of those many moments where the tidyverse feel like it has the perfect function.
+The purrr package has this useful function which applies my <code>possibly_extract_song_and_lyrics</code> function to each 36,37,38.. each of these functions return a dataframe, map_dfr sticks all those 395 mini dataframes together.</p>
+<pre class="r"><code>library(readr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;readr&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:rvest&#39;:
+## 
+##     guess_encoding</code></pre>
+<pre class="r"><code># for (i in 42:42) {
+#   
+#   readr::write_csv(possibly_extract_song_and_lyrics(i),paste0(&quot;../../data/&quot;,i,&quot;.csv&quot;))
+#   
+# }
+
+df &lt;- purrr::map_dfr( list.files(&quot;../../data&quot;,full.names = T),read_csv  )</code></pre>
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   lyrics = col_character(),
+##   song = col_character()
+## )</code></pre>
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   lyrics = col_character(),
+##   song = col_character()
+## )
+## 
+## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   lyrics = col_character(),
+##   song = col_character()
+## )
+## 
+## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   lyrics = col_character(),
+##   song = col_character()
+## )
+## 
+## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   lyrics = col_character(),
+##   song = col_character()
+## )
+## 
+## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   lyrics = col_character(),
+##   song = col_character()
+## )
+## 
+## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   lyrics = col_character(),
+##   song = col_character()
+## )</code></pre>
+<p>I then save all the songs locally, so i dont need to re download them every time
+now lets clean everything up with a bunch of parsing functions for the messy song and lyrics columns.</p>
+<pre class="r"><code>df &lt;- df %&gt;%
+ mutate(
+   lyrics = parse_lyrics(lyrics),
+   song = parse_songs(song)
+ )</code></pre>
+</div>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+
