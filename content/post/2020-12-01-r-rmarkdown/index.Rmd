@@ -1,0 +1,94 @@
+---
+title: "Text Mining"
+author: "Ezra Citron"
+date: 2020-12-01T21:13:14-05:00
+categories: ["R"]
+tags: ["R Markdown", "plot", "regression"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+# Text Mining
+
+Text mining promises a lot. The ability to get a machine to understand the main topics in a text, or how positive the writer was about the subject could have applications as far reaching as law, survey analysis, stock market analysis. I usually favor simplisity over perfection. I'd rather have a 6/10 model that I can interpret and (crusially) explain than a 9/10 model that no one can get thier head around. This is why i was so excited when I saw the `tidytext` package from [Julia Sigle](https://juliasilge.com/) at Rstudio. 
+
+I'm going to guide you through a piece a some text analysis, motivating why and how we are extracting insight from pieces of text that would be time consuming (and dull) to read from start to finish. 
+
+## Songs
+
+Songs lyrics are just text. Why not use next generation technology to answer the age old questions of which musicians are the most basic. Good questions lead to good analysis. Here are the questions id like to address.
+
+* Is there a notable difference in laguage used by Artists
+* Which words or phrases are idiosyncratic of certain artists.
+* Which artists use more complicated laguage (lexical diversity , word length?)
+
+I obviously need to pick a few artists to look at, so, (no judgement pls) ill go for Queen, Taylor swift, simon and garfunkle, Eminem for a varied selection.
+
+I will be using the `rvest` package to scrape all Eminem song lyrics from [here](www.azlyrics.com) 
+
+```{r scrape}
+library(rvest)
+library(stringr)
+url <- "https://www.azlyrics.com/e/eminem.html"
+html <- xml2::read_html(url)
+nodes <- html %>% html_nodes(css = "#listAlbum a") 
+
+length(nodes)
+nodes[length(nodes)]
+
+extract_lyrics_from_link <- function(i) {
+  lyric_text <- rvest::html_session(url) %>% 
+  rvest::follow_link(i = i) %>% 
+  rvest::html_nodes(".text-center div") %>% #css seletor of class text-center, element div
+  rvest::html_text()
+  
+  # Assume the longest section is the actual lyrics
+  filtered_lyric_text <- 
+    lyric_text[str_length(lyric_text) == max( str_length(lyric_text) ) ] #work out how todo using which
+
+  return(filtered_lyric_text[[1]])
+}
+
+parse_lyrics <- function(txt) {
+
+str_replace_all(txt, "[\r\n]"," " ) %>%
+  str_squish() # deletes repeated white space
+}
+
+extract_lyrics_from_link(36) %>% parse_lyrics() %>% str_sub(1,100)
+
+```
+
+Now that we have our function to get the lyrics `extract_lyrics_from_link` and `parse_lyrics` to clean it up, we can simply loop over the number of songs on the website, and save all the lyrics. Ahh, Physical reality doesnt come close the the satisfaction of running a good loop...
+
+things to fix. extract song name, and also dont simply take the one with max length, wont work for short songs. 
+
+```{r}
+lyrics_vector <- character(length = 0)
+for (i in 36:38 ) {
+  
+  lyrics <- extract_lyrics_from_link(i) %>% parse_lyrics() 
+
+  lyrics_vector <- append(lyrics_vector,lyrics)
+  
+}
+
+tibble::tibble(song = ,lyrics = lyrics_vector)
+```
+
+
+# Including Plots
+
+You can also embed plots. See Figure \@ref(fig:pie) for example:
+
+```{r pie, fig.cap='A fancy pie chart.', tidy=FALSE}
+par(mar = c(0, 1, 0, 1))
+pie(
+  c(280, 60, 20),
+  c('Sky', 'Sunny side of pyramid', 'Shady side of pyramid'),
+  col = c('#0292D8', '#F7EA39', '#C4B632'),
+  init.angle = -50, border = NA
+)
+```

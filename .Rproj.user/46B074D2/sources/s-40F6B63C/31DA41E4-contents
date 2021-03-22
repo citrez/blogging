@@ -1,0 +1,38 @@
+library(shiny)
+library(ggplot2)
+library(ggiraph)
+
+ui <- fluidPage(
+    fluidRow(
+    column(width = 6, girafeOutput("book_film_plot") ),
+    column(width = 6,tableOutput("table") ) )
+    )
+
+server <- function(input, output, session) {
+    
+    output$book_film_plot <- renderGirafe({
+        html_widge})
+    
+    selected_authors <- reactive({input$book_film_plot_selected})
+    
+    output$table <- renderTable({
+        book_film_gg %>% 
+            filter(Authors %in% selected_authors() ) %>% 
+            select(1:6)
+        })
+    
+    output$modalplot <-  renderGirafe({
+        html_widge})
+    
+    
+    
+    observeEvent(input$book_film_plot_selected,{
+
+        showModal({ girafeOutput("modalplot")})
+      
+        
+    })
+    
+    }
+
+shinyApp(ui = ui, server = server)
