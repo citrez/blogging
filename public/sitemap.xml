@@ -3,21 +3,45 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/categories/</loc>
-    <lastmod>2021-03-22T00:00:00+00:00</lastmod>
+    <lastmod>2021-03-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/why-every-good-data-scientist-should-consider-blogging/</loc>
+    <lastmod>2021-03-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/extend-a-concept-you-already-understand-dont-re-invest-the-wheel/</loc>
+    <lastmod>2021-03-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/</loc>
-    <lastmod>2021-03-22T00:00:00+00:00</lastmod>
+    <lastmod>2021-03-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/file-system/</loc>
+    <lastmod>2021-03-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/let-simulation-be-a-substitute-for-thinking/</loc>
+    <lastmod>2021-03-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/machine-learning/</loc>
+    <lastmod>2021-03-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/post/</loc>
-    <lastmod>2021-03-22T00:00:00+00:00</lastmod>
+    <lastmod>2021-03-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/purrr-the-most-underrated-package-in-the-tidyverse/</loc>
+    <lastmod>2021-03-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/understanding-what-is-possible-over-remembering-how-to-do-it/</loc>
+    <lastmod>2021-03-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/use-fs-package-for-all-you-file-system-automoation-needs/</loc>
+    <lastmod>2021-03-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/categories/webscraping/</loc>
     <lastmod>2021-03-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/2021/03/22/lyrics-scrape/</loc>
+    <loc>/lyrics-scrape/</loc>
     <lastmod>2021-03-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/2020/12/01/eminem-lyric-analysis-with-r/</loc>
+    <loc>/eminem-lyric-analysis-with-r/</loc>
     <lastmod>2020-12-01T21:13:14-05:00</lastmod>
   </url><url>
     <loc>/tags/nlp/</loc>

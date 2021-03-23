@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.82.0" />
+
+
+<title>Use FS package for all you file system needs - Ezra Citrons Website</title>
+<meta property="og:title" content="Use FS package for all you file system needs - Ezra Citrons Website">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about">About</a></li>
+    
+    <li><a href="/cv/">CV</a></li>
+    
+    <li><a href="https://github.com/citrez">GitHub</a></li>
+    
+    <li><a href="/resources">Resources</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">3 min read</span>
+    
+
+    <h1 class="article-title">Use FS package for all you file system needs</h1>
+
+    
+    <span class="article-date">2021-03-23</span>
+    
+
+    <div class="article-content">
+      
+
+
+<p>Classic problem i stumbled across recently. I had a bunch of files in a directory, and i wanted to rename them all at once. Perfect excuse, i thought to myself, to check out the fs package for manipulating files.</p>
+<div id="what-is-a-file-what-is-a-directory" class="section level2">
+<h2>what is a file what is a directory</h2>
+<p>Good to be clear at the offset. A directory is where you store your files.
+They call it a tree structure, because it looks like a tree. Take a look at one of the directories used to make this blog.</p>
+<pre class="r"><code>fs::dir_tree(&#39;..&#39;,recurse = T)</code></pre>
+<pre><code>## ..
+## ├── 2021-03-23-extend-a-concept-you-already-understand-dont-re-invest-the-wheel
+## │   ├── index.Rmd
+## │   └── index.html
+## ├── 2021-03-23-let-simulation-be-a-substitute-for-thinking
+## │   ├── index.Rmd
+## │   └── index.html
+## ├── 2021-03-23-purrr-the-most-underrated-package-in-the-tidyverse
+## │   ├── index.Rmd
+## │   └── index.html
+## ├── 2021-03-23-understanding-what-is-possible-over-remembering-how-to-do-it
+## │   ├── index.Rmd
+## │   └── index.html
+## ├── 2021-03-23-use-fs-package-for-all-you-file-system-automoation-needs
+## │   ├── index.Rmd
+## │   ├── index.Rmd.lock~
+## │   └── index.html
+## ├── 2021-03-23-why-every-good-data-scientist-should-consider-blogging
+## │   ├── index.Rmd
+## │   └── index.html
+## ├── eminem_lyric_analysis
+## │   ├── index.Rmd
+## │   ├── index.html
+## │   ├── index_cache
+## │   │   └── html
+## │   │       ├── __packages
+## │   │       ├── setup_c4aa664e7bb689fa393b2f3e7c0f0161.RData
+## │   │       ├── setup_c4aa664e7bb689fa393b2f3e7c0f0161.rdb
+## │   │       └── setup_c4aa664e7bb689fa393b2f3e7c0f0161.rdx
+## │   └── index_files
+## │       └── figure-html
+## │           └── pie-1.png
+## └── lyrics_scrape
+##     ├── index.Rmd
+##     └── index.html</code></pre>
+</div>
+<div id="manipulate-file-paths" class="section level2">
+<h2>manipulate file paths</h2>
+<p>If you ever thought, ’ i cant be bother to write out “my/path/to/my/file/file.txt”, let <code>fs::path()</code> do the work <code>fs::path("my/path/to","my","file","file", ext = "txt")</code> the benefit here, as with all fs functions, they are vectorised. So if you wanted to make 20 file path in the same directory called my/path/to/my/file/file1.txt,my/path/to/my/file/file2.txt .. etc its as simple as <code>fs::path("my/path/to","my","file","file",1:20, ext = "txt")</code>. Vectorised functions are an important thing to understand in R, but once you understand vectorised functions, it’ll change the way you understand R - check out my thoughts about it here.</p>
+<pre class="r"><code>library(fs)
+fs::dir_ls(&#39;.&#39;)</code></pre>
+<pre><code>## index.Rmd       index.Rmd.lock~ index.html</code></pre>
+<pre class="r"><code>fs::path(&quot;my/path/to&quot;,&quot;my&quot;,&quot;file&quot;,&quot;file&quot;, ext = &quot;txt&quot;)</code></pre>
+<pre><code>## my/path/to/my/file/file.txt</code></pre>
+<pre class="r"><code>dir_info(path = &#39;..&#39;) # can add recurse = TRUE</code></pre>
+<pre><code>## # A tibble: 8 x 18
+##   path         type   size permissions modification_time   user  group device_id
+##   &lt;fs::path&gt;   &lt;fct&gt; &lt;fs:&gt; &lt;fs::perms&gt; &lt;dttm&gt;              &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt;
+## 1 ../2021-03-… dire…   128 rwxr-xr-x   2021-03-23 11:50:56 ezra… staff  16777221
+## 2 ../2021-03-… dire…   128 rwxr-xr-x   2021-03-23 12:27:02 ezra… staff  16777221
+## 3 ../2021-03-… dire…   128 rwxr-xr-x   2021-03-23 12:09:33 ezra… staff  16777221
+## 4 ../2021-03-… dire…   128 rwxr-xr-x   2021-03-23 12:06:30 ezra… staff  16777221
+## 5 ../2021-03-… dire…   160 rwxr-xr-x   2021-03-23 14:07:34 ezra… staff  16777221
+## 6 ../2021-03-… dire…   128 rwxr-xr-x   2021-03-23 13:18:05 ezra… staff  16777221
+## 7 ../eminem_l… dire…   192 rwxr-xr-x   2021-03-22 14:17:54 ezra… staff  16777221
+## 8 ../lyrics_s… dire…   128 rwxr-xr-x   2021-03-23 12:25:20 ezra… staff  16777221
+## # … with 10 more variables: hard_links &lt;dbl&gt;, special_device_id &lt;dbl&gt;,
+## #   inode &lt;dbl&gt;, block_size &lt;dbl&gt;, blocks &lt;dbl&gt;, flags &lt;int&gt;, generation &lt;dbl&gt;,
+## #   access_time &lt;dttm&gt;, change_time &lt;dttm&gt;, birth_time &lt;dttm&gt;</code></pre>
+<pre class="r"><code>dir_ls(&#39;..&#39;)</code></pre>
+<pre><code>## ../2021-03-23-extend-a-concept-you-already-understand-dont-re-invest-the-wheel
+## ../2021-03-23-let-simulation-be-a-substitute-for-thinking
+## ../2021-03-23-purrr-the-most-underrated-package-in-the-tidyverse
+## ../2021-03-23-understanding-what-is-possible-over-remembering-how-to-do-it
+## ../2021-03-23-use-fs-package-for-all-you-file-system-automoation-needs
+## ../2021-03-23-why-every-good-data-scientist-should-consider-blogging
+## ../eminem_lyric_analysis
+## ../lyrics_scrape</code></pre>
+<pre class="r"><code>#construct paths
+path(&#39;my&#39;,&#39;file&#39;,&#39;path&#39;,ext = &#39;txt&#39;)</code></pre>
+<pre><code>## my/file/path.txt</code></pre>
+<pre class="r"><code>file_show(&#39;index.Rmd&#39;)</code></pre>
+</div>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+    
+  </body>
+</html>
+

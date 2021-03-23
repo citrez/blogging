@@ -1,4 +1,5 @@
 .csv
+
 .xlsx
 .xls
 .Rproj.user
@@ -6,3 +7,4 @@
 .RData
 .Ruserdata
 content/data/
+public/data

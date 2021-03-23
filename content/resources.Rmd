@@ -43,4 +43,9 @@ I hope to update this regularly</p>
 - CSS selectors, useful for telling a computer which part of a webpage you want it to grab. 
 [flukeout](https://flukeout.github.io/) does an incredible job at gameifying CSS selection. If you're not careful, you won't even realise you're learning. 
 
+- [Library of Babel](https://libraryofbabel.info/) makes you think about randomness
+
+-[Pudding](https://pudding.cool/) is website dedicated to cool visualisation. Worth checking out for some inspo.
+
+
 ## Packages I dig

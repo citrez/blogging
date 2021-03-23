@@ -9,10 +9,10 @@
     <lastBuildDate>Tue, 01 Dec 2020 21:13:14 -0500</lastBuildDate><atom:link href="/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Eminem Lyric analysis with R</title>
-      <link>/2020/12/01/eminem-lyric-analysis-with-r/</link>
+      <link>/eminem-lyric-analysis-with-r/</link>
       <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
       
-      <guid>/2020/12/01/eminem-lyric-analysis-with-r/</guid>
+      <guid>/eminem-lyric-analysis-with-r/</guid>
       <description>Text Mining with Eminem Text mining promises a lot. The ability to get a machine to understand the main topics in a text, or how positive the writer was about the subject could have applications as far reaching as law, analysing survey responces, stock market analysis. I usually favor simplicity over perfection. I’d rather have a 6/10 model that I can interpret and (crucially) explain than a 9/10 model that no one can get their head around.</description>
     </item>
     
