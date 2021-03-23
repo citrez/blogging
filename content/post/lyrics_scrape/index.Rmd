@@ -76,18 +76,7 @@ parse_songs <- function(x) {
 Now that we have our function to get the lyrics `extract_lyrics_from_link` and `parse_lyrics` to clean it up, we can simply loop over the number of songs on the website, and save all the lyrics. Ahh, the satisfaction of running a loop...
 
 Theres one more step i want to take before i run the loop, the last thing is for everything to work great for the first 200 songs, and then i get an error on the 201st song and i need to start the scrape again. 
-So i use this great function called `possibly()` from the `purrr` package. Possibly (along with similar function safelyt and quitely) are all functions which update the behaviour or other functions, so that if (read: when) something goes wrong in your code, R doesnt have a strop, and halt your code, loosing all your progress, you can decide its behavior. Here, i will tell R that if i dont get the lyrics, song dataframe i want, just retrun an empty one and add it to the list. The quiet = F just tells say "even though i dont want the error to ruin everything, I still want to hear about it".
-```{r}
-
-library(purrr)
-
-`+`(1,1)
-
-
-`possibly+` <- possibly(`+`,otherwise = '17',quiet = F) 
-`possibly+`(1,'hi')
-
-```
+So i use this great function called `possibly()` from the `purrr` package, which i talk about in this blog post
 
 
 ```{r}
@@ -95,8 +84,7 @@ library(purrr)
 library(purrr)
 
 possibly_extract_song_and_lyrics<- possibly(extract_song_and_lyrics,
-                                    otherwise = tibble::tibble(lyrics = character(0),song = character(0)),
-                                    quiet = F)
+                                    otherwise = tibble::tibble(lyrics = character(0),song = character(0)),quiet = F)
 
 ```
 
@@ -108,11 +96,11 @@ The purrr package has this useful function which applies my `possibly_extract_so
 library(readr)
 
 
-# for (i in 42:42) {
-#   
-#   readr::write_csv(possibly_extract_song_and_lyrics(i),paste0("../../data/",i,".csv"))
-#   
-# }
+for (i in 46:52) {
+
+  readr::write_csv(possibly_extract_song_and_lyrics(i),paste0("../../data/",i,".csv"))
+
+}
 
 df <- purrr::map_dfr( list.files("../../data",full.names = T),read_csv  )
 

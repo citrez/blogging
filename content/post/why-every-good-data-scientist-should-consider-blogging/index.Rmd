@@ -1,0 +1,26 @@
+---
+title: Why every good data scientist should consider blogging
+author: R package build
+date: '2021-03-23'
+slug: why-every-good-data-scientist-should-consider-blogging
+categories: []
+tags: []
+---
+
+Lets cut to the chase here, in no particular order these are the skills that blogging will help you with.
+
+- ordering your thoughts
+
+- finishing things
+
+- communicating results to a non-technical audience
+
+- practicing reproducibilty
+
+-incentive to stay curious. I'm more likely to go that extra mile to check out an interesting sounding package if i think it could be the makings of an interesting blog post. 
+
+- Getting your name out there. If you know stuff, and you want other to know that you know stuff. Then you have two options 
+a) constantly remind people how much you know by not so subtly hijack conversations to make that abundantly clear to everyone
+b) Have a workbook of code/ blog where you can show evidence of things that you do and dont know, and allow anyone to browse  at thier own leasure.
+
+i'm sure you'll make the right choice

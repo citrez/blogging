@@ -21,13 +21,11 @@ menu:
       url: /resources
       
     - name: About
-      url: /about/
+      url: /about
       
     - name: GitHub
       url: https://github.com/citrez
       
-    - name: Twitter
-      url: https://twitter.com/rstudio
       
 params:
   MathJaxCDN: //cdnjs.cloudflare.com/ajax/libs

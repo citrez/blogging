@@ -64,7 +64,7 @@ length(links_to_songs)</code></pre>
 <pre><code>## &lt;session&gt; https://www.azlyrics.com/e/NA
 ##   Status: 404
 ##   Type:   text/html
-##   Size:   14619</code></pre>
+##   Size:   14599</code></pre>
 <pre class="r"><code>extract_song_and_lyrics &lt;- function(i) {
   
   lyric_text &lt;- rvest::html_session(url) %&gt;% 
@@ -103,24 +103,15 @@ parse_songs &lt;- function(x) {
 }</code></pre>
 <p>Now that we have our function to get the lyrics <code>extract_lyrics_from_link</code> and <code>parse_lyrics</code> to clean it up, we can simply loop over the number of songs on the website, and save all the lyrics. Ahh, the satisfaction of running a loop…</p>
 <p>Theres one more step i want to take before i run the loop, the last thing is for everything to work great for the first 200 songs, and then i get an error on the 201st song and i need to start the scrape again.
-So i use this great function called <code>possibly()</code> from the <code>purrr</code> package. Possibly (along with similar function safelyt and quitely) are all functions which update the behaviour or other functions, so that if (read: when) something goes wrong in your code, R doesnt have a strop, and halt your code, loosing all your progress, you can decide its behavior. Here, i will tell R that if i dont get the lyrics, song dataframe i want, just retrun an empty one and add it to the list. The quiet = F just tells say “even though i dont want the error to ruin everything, I still want to hear about it”.</p>
+So i use this great function called <code>possibly()</code> from the <code>purrr</code> package, which i talk about in this blog post</p>
 <pre class="r"><code>library(purrr)</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;purrr&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:rvest&#39;:
 ## 
 ##     pluck</code></pre>
-<pre class="r"><code>`+`(1,1)</code></pre>
-<pre><code>## [1] 2</code></pre>
-<pre class="r"><code>`possibly+` &lt;- possibly(`+`,otherwise = &#39;17&#39;,quiet = F) 
-`possibly+`(1,&#39;hi&#39;)</code></pre>
-<pre><code>## Error: non-numeric argument to binary operator</code></pre>
-<pre><code>## [1] &quot;17&quot;</code></pre>
-<pre class="r"><code>library(purrr)
-
-possibly_extract_song_and_lyrics&lt;- possibly(extract_song_and_lyrics,
-                                    otherwise = tibble::tibble(lyrics = character(0),song = character(0)),
-                                    quiet = F)</code></pre>
+<pre class="r"><code>possibly_extract_song_and_lyrics&lt;- possibly(extract_song_and_lyrics,
+                                    otherwise = tibble::tibble(lyrics = character(0),song = character(0)),quiet = F)</code></pre>
 <p>This is one of those many moments where the tidyverse feel like it has the perfect function.
 The purrr package has this useful function which applies my <code>possibly_extract_song_and_lyrics</code> function to each 36,37,38.. each of these functions return a dataframe, map_dfr sticks all those 395 mini dataframes together.</p>
 <pre class="r"><code>library(readr)</code></pre>
@@ -129,13 +120,19 @@ The purrr package has this useful function which applies my <code>possibly_extra
 <pre><code>## The following object is masked from &#39;package:rvest&#39;:
 ## 
 ##     guess_encoding</code></pre>
-<pre class="r"><code># for (i in 42:42) {
-#   
-#   readr::write_csv(possibly_extract_song_and_lyrics(i),paste0(&quot;../../data/&quot;,i,&quot;.csv&quot;))
-#   
-# }
+<pre class="r"><code>for (i in 46:52) {
 
-df &lt;- purrr::map_dfr( list.files(&quot;../../data&quot;,full.names = T),read_csv  )</code></pre>
+  readr::write_csv(possibly_extract_song_and_lyrics(i),paste0(&quot;../../data/&quot;,i,&quot;.csv&quot;))
+
+}</code></pre>
+<pre><code>## Navigating to ../lyrics/eminem/jealousywoesii.html</code></pre>
+<pre><code>## Navigating to ../lyrics/eminem/introslimshady.html</code></pre>
+<pre><code>## Navigating to ../lyrics/eminem/lowdowndirty.html</code></pre>
+<pre><code>## Navigating to ../lyrics/eminem/ifihad.html</code></pre>
+<pre><code>## Navigating to ../lyrics/eminem/justdontgiveafuck.html</code></pre>
+<pre><code>## Navigating to ../lyrics/eminem/mommyskit.html</code></pre>
+<pre><code>## Navigating to ../lyrics/eminem/justthetwoofus.html</code></pre>
+<pre class="r"><code>df &lt;- purrr::map_dfr( list.files(&quot;../../data&quot;,full.names = T),read_csv  )</code></pre>
 <pre><code>## 
 ## ── Column specification ────────────────────────────────────────────────────────
 ## cols(
@@ -143,6 +140,76 @@ df &lt;- purrr::map_dfr( list.files(&quot;../../data&quot;,full.names = T),read_
 ##   song = col_character()
 ## )</code></pre>
 <pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   lyrics = col_character(),
+##   song = col_character()
+## )
+## 
+## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   lyrics = col_character(),
+##   song = col_character()
+## )
+## 
+## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   lyrics = col_character(),
+##   song = col_character()
+## )
+## 
+## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   lyrics = col_character(),
+##   song = col_character()
+## )
+## 
+## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   lyrics = col_character(),
+##   song = col_character()
+## )
+## 
+## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   lyrics = col_character(),
+##   song = col_character()
+## )
+## 
+## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   lyrics = col_character(),
+##   song = col_character()
+## )
+## 
+## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   lyrics = col_character(),
+##   song = col_character()
+## )
+## 
+## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   lyrics = col_character(),
+##   song = col_character()
+## )
+## 
+## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   lyrics = col_character(),
+##   song = col_character()
+## )
+## 
+## 
 ## ── Column specification ────────────────────────────────────────────────────────
 ## cols(
 ##   lyrics = col_character(),

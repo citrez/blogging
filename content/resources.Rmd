@@ -6,8 +6,8 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-Here is a collection of things that i use.
-I hope to update this regularly
+<p style="text-align: center;">Here is a collection of things that i use.
+I hope to update this regularly</p>
 
 ## R.
 - R for Data Science for me is the definitive guide to Data Science in R. It is both highly approachable and can really get you quite far along with your data needs. 
@@ -25,11 +25,15 @@ I hope to update this regularly
 
 ## Visualising
 
-- The [R Graph gallery](https://www.r-graph-gallery.com/) and this website as a whole is an absoloutly indespensible resource. Not only does it have practically every visualation that you could possibly hope to make in r, but it gives you simple reproducable code to go along with it. This site similarly caters for python, and D3 (would love to learn more D3, so watch this space). It also links to thier [data-to-vis](https://www.data-to-viz.com/#explore) websites, which offers a decision tree to pick appropriate visual along with the relavant caveats. 
+- The [R Graph gallery](https://www.r-graph-gallery.com/) and this website as a whole is an absolutely indispensable resource. Not only does it have practically every visualization that you could possibly hope to make in r, but it gives you simple reproducible code to go along with it. This site similarly caters for python, and D3 (would love to learn more D3, so watch this space). It also links to their [data-to-vis](https://www.data-to-viz.com/#explore) websites, which offers a decision tree to pick appropriate visual along with the relevant caveats. 
 
-## Other great books
+- GGplot2 book by hadley is the definitive guide for ggplot2, which is the go-to vis package in R.
 
-- An introduction to statisical learning with applications in R. A great book for understanding the key ideas in ML, offers a readable and no-nonsense introduction. Note I find the "application in R" a bit 'base R'-y for my liking.
+## Other great books/sites
+
+- An introduction to statisical learning with applications in R. A great book for understanding the key ideas in ML, offers a readable and no-nonsense introduction. Although I find the "application in R" a bit 'base R'-y for my liking.
+
+- Regex is like a superpower. Once you know it, you'll wonder how you ever got by without it. The good news is, it is more important to know what is possible, that remember exactly how to implement it
 
 ## Amazing Websites that deserve more attention
 

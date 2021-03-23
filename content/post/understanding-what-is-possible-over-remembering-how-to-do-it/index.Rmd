@@ -1,0 +1,8 @@
+---
+title: Understanding what is possible over remembering how to do it
+author: R package build
+date: '2021-03-23'
+slug: understanding-what-is-possible-over-remembering-how-to-do-it
+categories: []
+tags: []
+---
