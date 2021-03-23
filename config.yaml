@@ -1,4 +1,4 @@
-baseurl: /
+baseurl: https://casualcoding.netlify.app/
 languageCode: en-us
 title: Ezra Citrons Website
 theme: hugo-lithium

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R on Ezra Citrons Website</title>
-    <link>/categories/r/</link>
+    <link>https://casualcoding.netlify.app/categories/r/</link>
     <description>Recent content in R on Ezra Citrons Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Dec 2020 21:13:14 -0500</lastBuildDate><atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://casualcoding.netlify.app/categories/r/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Eminem Lyric analysis with R</title>
-      <link>/eminem-lyric-analysis-with-r/</link>
-      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
+      <link>https://casualcoding.netlify.app/eminem-lyric-analysis-with-r/</link>
+      <pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>/eminem-lyric-analysis-with-r/</guid>
+      <guid>https://casualcoding.netlify.app/eminem-lyric-analysis-with-r/</guid>
       <description>Text Mining with Eminem Text mining promises a lot. The ability to get a machine to understand the main topics in a text, or how positive the writer was about the subject could have applications as far reaching as law, analysing survey responces, stock market analysis. I usually favor simplicity over perfection. I’d rather have a 6/10 model that I can interpret and (crucially) explain than a 9/10 model that no one can get their head around.</description>
     </item>
     

@@ -37,6 +37,7 @@ I hope to update this regularly</p>
 
 ## Amazing Websites that deserve more attention
 
+
 - Have you ever wished you know more about git? (the answer should always be yes)
 [git-school](https://git-school.github.io/visualizing-git/) have created this neat little webpage that helps you visualise what goes on when you hit that dreaded git pull.
 

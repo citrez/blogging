@@ -6,6 +6,9 @@ slug: use-fs-package-for-all-you-file-system-automoation-needs
 categories: ["File system"]
 tags: []
 ---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
 
 Classic problem i stumbled across recently. I had a bunch of files in a directory, and i wanted to rename them all at once. Perfect excuse, i  thought to myself, to check out the fs package for manipulating files.
 
@@ -32,7 +35,7 @@ If you ever thought, ' i cant be bother to write out "my/path/to/my/file/file.tx
  `fs::path_wd()` is tells you where you are. 
  `fs::dir_ls('.')` is laso your friend, it tell what is in the place you are in.
 
-```{r}
+```{r,eval = F}
 
 library(fs)
 
@@ -43,7 +46,7 @@ old_path <- fs::dir_ls('..')[1:3]
 new_path <- fs::dir_ls('..')[1:3] %>% str_remove("(?<=\\.{2}/)\\d{4}-\\d{2}-\\d{2}-")
 
 
-fs::file_move(path = old_path,new_path = new_path)
+#fs::file_move(path = old_path,new_path = new_path)
 
 fs::path("my/path/to","my","file","file", ext = "txt")
 

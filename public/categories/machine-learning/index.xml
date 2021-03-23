@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Machine Learning on Ezra Citrons Website</title>
-    <link>/categories/machine-learning/</link>
+    <link>https://casualcoding.netlify.app/categories/machine-learning/</link>
     <description>Recent content in Machine Learning on Ezra Citrons Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 23 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://casualcoding.netlify.app/categories/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Extend a concept you already understand, dont re-invent the wheel</title>
-      <link>/extend-a-concept-you-already-understand-dont-re-invest-the-wheel/</link>
+      <link>https://casualcoding.netlify.app/extend-a-concept-you-already-understand-dont-re-invest-the-wheel/</link>
       <pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>/extend-a-concept-you-already-understand-dont-re-invest-the-wheel/</guid>
+      <guid>https://casualcoding.netlify.app/extend-a-concept-you-already-understand-dont-re-invest-the-wheel/</guid>
       <description>Machine learning is a large topic, but if you are ever at the cross roads and the choice is between picking an unfamiliar novol technique and an old classic. Be very sure that there is tangable advantage to going with the more complex solution.
 There is a tradeoff between predictive power and interpretablilty. Sometime i feel like this graph should be stapled to my forhead.
 Learning Curb Modeling does not work in scilos, there is significant time cost involved with getting everyone up to take</description>

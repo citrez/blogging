@@ -33,6 +33,12 @@ The topic of webscraping (downloading the stuff you see on the internet onto you
 
 
 # itdf difference between albums
+```{r}
+library(tidytext)
+
+
+```
+
 
 # album 'flow' 
 

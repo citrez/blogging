@@ -2,18 +2,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Ezra Citrons Website</title>
-    <link>/post/</link>
+    <link>https://casualcoding.netlify.app/post/</link>
     <description>Recent content in Posts on Ezra Citrons Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 23 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://casualcoding.netlify.app/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Every good data scientist should consider blogging</title>
-      <link>/why-every-good-data-scientist-should-consider-blogging/</link>
+      <title>Eminem Lyric analysis with R</title>
+      <link>https://casualcoding.netlify.app/eminem-lyric-analysis-with-r/</link>
       <pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>/why-every-good-data-scientist-should-consider-blogging/</guid>
-      <description>Lets cut to the chase here, in no particular order these are the skills that blogging will help you with.
+      <guid>https://casualcoding.netlify.app/eminem-lyric-analysis-with-r/</guid>
+      <description>Text Mining with Eminem Text mining promises a lot. The ability to get a machine to understand the main topics in a text, or how positive the writer was about the subject could have applications as far reaching as law, analysing survey responces, stock market analysis. I usually favor simplicity over perfection. I’d rather have a 6/10 model that I can interpret and (crucially) explain than a 9/10 model that no one can get their head around.</description>
+    </item>
+    
+    <item>
+      <title>Every good data scientist should consider blogging</title>
+      <link>https://casualcoding.netlify.app/every-good-data-scientist-should-consider-blogging/</link>
+      <pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://casualcoding.netlify.app/every-good-data-scientist-should-consider-blogging/</guid>
+      <description>:boom:
+Lets cut to the chase here, in no particular order these are the skills that blogging will help you with.
  ordering your thoughts
  finishing things.
  Communicating results to a non-technical audience.
@@ -23,70 +33,63 @@
     
     <item>
       <title>Extend a concept you already understand, dont re-invent the wheel</title>
-      <link>/extend-a-concept-you-already-understand-dont-re-invest-the-wheel/</link>
+      <link>https://casualcoding.netlify.app/extend-a-concept-you-already-understand-dont-re-invest-the-wheel/</link>
       <pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>/extend-a-concept-you-already-understand-dont-re-invest-the-wheel/</guid>
+      <guid>https://casualcoding.netlify.app/extend-a-concept-you-already-understand-dont-re-invest-the-wheel/</guid>
       <description>Machine learning is a large topic, but if you are ever at the cross roads and the choice is between picking an unfamiliar novol technique and an old classic. Be very sure that there is tangable advantage to going with the more complex solution.
 There is a tradeoff between predictive power and interpretablilty. Sometime i feel like this graph should be stapled to my forhead.
 Learning Curb Modeling does not work in scilos, there is significant time cost involved with getting everyone up to take</description>
     </item>
     
     <item>
-      <title>Let simulation be a substitute for thinking</title>
-      <link>/let-simulation-be-a-substitute-for-thinking/</link>
-      <pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>/let-simulation-be-a-substitute-for-thinking/</guid>
-      <description>My mother is a keen reader of ‘the daily scienctist’, a UK based popular sceince magazine. Invariably over a given weenend she’ll exclaim something along the lines of “The last estimate was wrong, the obserable universe is 245,600,00 years old, not 245,700,00” or “carrots have been proven to make you totally immune to cancer”, ill take an interest but quickly return to my book (/phone).
-so here it is</description>
-    </item>
-    
-    <item>
       <title>Purrr, the most underrated package in the tidyverse</title>
-      <link>/purrr-the-most-underrated-package-in-the-tidyverse/</link>
+      <link>https://casualcoding.netlify.app/purrr-the-most-underrated-package-in-the-tidyverse/</link>
       <pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>/purrr-the-most-underrated-package-in-the-tidyverse/</guid>
+      <guid>https://casualcoding.netlify.app/purrr-the-most-underrated-package-in-the-tidyverse/</guid>
       <description>Map  Reduce  Possibly, Safely, Quieitly Possibly (along with similar function safelyt and quitely) are all functions which update the behaviour or other functions, so that if (read: when) something goes wrong in your code, R doesnt have a strop, and halt your code, loosing all your progress, you can decide its behavior. Here, i will tell R that if i dont get the lyrics, song dataframe i want, just retrun an empty one and add it to the list.</description>
     </item>
     
     <item>
-      <title>Understanding what is possible over remembering how to do it</title>
-      <link>/understanding-what-is-possible-over-remembering-how-to-do-it/</link>
+      <title>Stop thinking, start simulating</title>
+      <link>https://casualcoding.netlify.app/let-simulation-be-a-substitute-for-thinking/</link>
       <pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>/understanding-what-is-possible-over-remembering-how-to-do-it/</guid>
+      <guid>https://casualcoding.netlify.app/let-simulation-be-a-substitute-for-thinking/</guid>
+      <description>My mother is a keen reader of ‘the daily scientist’, a UK based popular sceince magazine. Invariably over a given weekend she’ll exclaim something along the lines of “The last estimate was wrong, the observable universe is 245,600,00 years old, not 245,700,00” or “carrots have been proven to make you totally immune to cancer”, ill take an interest but quickly return to my book (/phone).
+so here it is</description>
+    </item>
+    
+    <item>
+      <title>Understanding what is possible over remembering how to do it</title>
+      <link>https://casualcoding.netlify.app/understanding-what-is-possible-over-remembering-how-to-do-it/</link>
+      <pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://casualcoding.netlify.app/understanding-what-is-possible-over-remembering-how-to-do-it/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Use FS package for all you file system needs</title>
-      <link>/use-fs-package-for-all-you-file-system-automoation-needs/</link>
+      <link>https://casualcoding.netlify.app/use-fs-package-for-all-you-file-system-automoation-needs/</link>
       <pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>/use-fs-package-for-all-you-file-system-automoation-needs/</guid>
+      <guid>https://casualcoding.netlify.app/use-fs-package-for-all-you-file-system-automoation-needs/</guid>
       <description>Classic problem i stumbled across recently. I had a bunch of files in a directory, and i wanted to rename them all at once. Perfect excuse, i thought to myself, to check out the fs package for manipulating files.
 what is a file what is a directory Good to be clear at the offset. A directory is where you store your files. They call it a tree structure, because it looks like a tree.</description>
     </item>
     
     <item>
       <title>Will the real scrapy please stand up</title>
-      <link>/lyrics-scrape/</link>
+      <link>https://casualcoding.netlify.app/lyrics-scrape/</link>
       <pubDate>Mon, 22 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>/lyrics-scrape/</guid>
-      <description>Scraping lyrics Title puns aside, I’ll be using the rvest package to scrape all Eminem song lyrics from here
-library(rvest) ## Loading required package: xml2 library(stringr) library(dplyr) ## ## Attaching package: &amp;#39;dplyr&amp;#39; ## The following objects are masked from &amp;#39;package:stats&amp;#39;: ## ## filter, lag ## The following objects are masked from &amp;#39;package:base&amp;#39;: ## ## intersect, setdiff, setequal, union url &amp;lt;- &amp;quot;https://www.azlyrics.com/e/eminem.html&amp;quot; html &amp;lt;- xml2::read_html(url) links_to_songs &amp;lt;- html %&amp;gt;% html_nodes(css = &amp;quot;#listAlbum a&amp;quot;) length(links_to_songs) ## [1] 396 links_to_songs[length(links_to_songs)] ## {xml_nodeset (1)} ## [1] &amp;lt;a href=&amp;quot;.</description>
-    </item>
-    
-    <item>
-      <title>Eminem Lyric analysis with R</title>
-      <link>/eminem-lyric-analysis-with-r/</link>
-      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
-      
-      <guid>/eminem-lyric-analysis-with-r/</guid>
-      <description>Text Mining with Eminem Text mining promises a lot. The ability to get a machine to understand the main topics in a text, or how positive the writer was about the subject could have applications as far reaching as law, analysing survey responces, stock market analysis. I usually favor simplicity over perfection. I’d rather have a 6/10 model that I can interpret and (crucially) explain than a 9/10 model that no one can get their head around.</description>
+      <guid>https://casualcoding.netlify.app/lyrics-scrape/</guid>
+      <description>Scraping lyrics title
+ Title puns aside, I’ll be using the rvest package to scrape all Eminem song lyrics from here
+We will also need to clean up these columns using regex
+Now that we have our function to get the lyrics extract_lyrics_from_link and parse_lyrics to clean it up, we can simply loop over the number of songs on the website, and save all the lyrics. Ahh, the satisfaction of running a loop…</description>
     </item>
     
   </channel>

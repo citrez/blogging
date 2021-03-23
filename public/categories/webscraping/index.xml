@@ -2,19 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>webscraping on Ezra Citrons Website</title>
-    <link>/categories/webscraping/</link>
+    <link>https://casualcoding.netlify.app/categories/webscraping/</link>
     <description>Recent content in webscraping on Ezra Citrons Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 22 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/webscraping/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://casualcoding.netlify.app/categories/webscraping/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Will the real scrapy please stand up</title>
-      <link>/lyrics-scrape/</link>
+      <link>https://casualcoding.netlify.app/lyrics-scrape/</link>
       <pubDate>Mon, 22 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>/lyrics-scrape/</guid>
-      <description>Scraping lyrics Title puns aside, I’ll be using the rvest package to scrape all Eminem song lyrics from here
-library(rvest) ## Loading required package: xml2 library(stringr) library(dplyr) ## ## Attaching package: &amp;#39;dplyr&amp;#39; ## The following objects are masked from &amp;#39;package:stats&amp;#39;: ## ## filter, lag ## The following objects are masked from &amp;#39;package:base&amp;#39;: ## ## intersect, setdiff, setequal, union url &amp;lt;- &amp;quot;https://www.azlyrics.com/e/eminem.html&amp;quot; html &amp;lt;- xml2::read_html(url) links_to_songs &amp;lt;- html %&amp;gt;% html_nodes(css = &amp;quot;#listAlbum a&amp;quot;) length(links_to_songs) ## [1] 396 links_to_songs[length(links_to_songs)] ## {xml_nodeset (1)} ## [1] &amp;lt;a href=&amp;quot;.</description>
+      <guid>https://casualcoding.netlify.app/lyrics-scrape/</guid>
+      <description>Scraping lyrics title
+ Title puns aside, I’ll be using the rvest package to scrape all Eminem song lyrics from here
+We will also need to clean up these columns using regex
+Now that we have our function to get the lyrics extract_lyrics_from_link and parse_lyrics to clean it up, we can simply loop over the number of songs on the website, and save all the lyrics. Ahh, the satisfaction of running a loop…</description>
     </item>
     
   </channel>

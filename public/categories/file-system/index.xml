@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>File system on Ezra Citrons Website</title>
-    <link>/categories/file-system/</link>
+    <link>https://casualcoding.netlify.app/categories/file-system/</link>
     <description>Recent content in File system on Ezra Citrons Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 23 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/file-system/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://casualcoding.netlify.app/categories/file-system/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Use FS package for all you file system needs</title>
-      <link>/use-fs-package-for-all-you-file-system-automoation-needs/</link>
+      <link>https://casualcoding.netlify.app/use-fs-package-for-all-you-file-system-automoation-needs/</link>
       <pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>/use-fs-package-for-all-you-file-system-automoation-needs/</guid>
+      <guid>https://casualcoding.netlify.app/use-fs-package-for-all-you-file-system-automoation-needs/</guid>
       <description>Classic problem i stumbled across recently. I had a bunch of files in a directory, and i wanted to rename them all at once. Perfect excuse, i thought to myself, to check out the fs package for manipulating files.
 what is a file what is a directory Good to be clear at the offset. A directory is where you store your files. They call it a tree structure, because it looks like a tree.</description>
     </item>

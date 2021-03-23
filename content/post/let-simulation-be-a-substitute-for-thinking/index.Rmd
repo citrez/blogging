@@ -55,6 +55,8 @@ This is where simulation comes it, we could run this 100 times, each time record
 
 
 ```{r}
+
+library(tidyverse)
 number_of_sims <- 1000
 sim <- tibble(event = 1:number_of_sims)
 
@@ -78,6 +80,8 @@ sim %>%
 ```
 
 Great, with almost no thought at all, we've figured out that Harriet has a 32% chance of of winning, Matila 50% and 18% chance of having the same number of puppies.
+
+Now lets build a quick shiny app to bring this simulation to life.
 
 
 

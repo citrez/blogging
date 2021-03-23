@@ -5,16 +5,23 @@ date: '2021-03-22'
 slug: lyrics-scrape
 categories: [webscraping]
 tags: []
+editor_options: 
+  chunk_output_type: console
 ---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,eval = F)
+
+```
 
 # Scraping lyrics
+
+![](/images/logo1.png)
 
 Title puns aside, I'll be using the `rvest` package to scrape all Eminem song lyrics from [here](www.azlyrics.com)
 
 ```{r scrape}
 library(rvest)
-library(stringr)
-library(dplyr)
+library(tidyverse)
 url <- "https://www.azlyrics.com/e/eminem.html"
 html <- xml2::read_html(url)
 links_to_songs <- html %>% html_nodes(css = "#listAlbum a") 
@@ -22,29 +29,25 @@ links_to_songs <- html %>% html_nodes(css = "#listAlbum a")
 length(links_to_songs)
 links_to_songs[length(links_to_songs)]
 
- rvest::html_session(url) %>% 
-  rvest::html_nodes(css = "#listAlbum a") 
-
-rvest::html_session(url) %>% 
-  rvest::follow_link(css = "#listAlbum")
-  
-
 
 extract_song_and_lyrics <- function(i) {
   
   lyric_text <- rvest::html_session(url) %>% 
   rvest::follow_link(i = i) %>% 
-  rvest::html_nodes(".text-center div") %>% #css seletor of class text-center, element div
+    #css seletor of class text-center, element div
+  rvest::html_nodes(".text-center div") %>% 
   rvest::html_text()
   
   lyric_text <- 
-    lyric_text[ str_detect(lyric_text,"Android\\|webOS\\|iPhone",negate = T)] #filtering out sections i dont want
+    #filtering out sections i dont want
+    lyric_text[ str_detect(lyric_text,"Android\\|webOS\\|iPhone",negate = T)] 
   
-  song_name <- lyric_text[lyric_text %>% str_detect("lyrics$")]
+  song_name <- lyric_text[str_detect(lyric_text ,"lyrics$")]
   
   # Assume the longest section is the actual lyrics
   filtered_lyric_text <-
-    lyric_text[str_length(lyric_text) == max(str_length(lyric_text))] #work out how todo using which
+    #work out how todo using which
+    lyric_text[str_length(lyric_text) == max(str_length(lyric_text))] 
   
   df <- tibble::tibble(lyrics = filtered_lyric_text, song = song_name)
   
@@ -91,18 +94,27 @@ possibly_extract_song_and_lyrics<- possibly(extract_song_and_lyrics,
 This is one of those many moments where the tidyverse feel like it has the perfect function. 
 The purrr package has this useful function which applies my `possibly_extract_song_and_lyrics` function to each 36,37,38.. each of these functions return a dataframe, map_dfr sticks all those 395 mini dataframes together.  
 
-```{r}
+```{r,eval=F}
 
 library(readr)
 
-
-for (i in 46:52) {
-
-  readr::write_csv(possibly_extract_song_and_lyrics(i),paste0("../../data/",i,".csv"))
-
+for (i in 127:136) {
+  readr::write_csv(possibly_extract_song_and_lyrics(i),paste0("content/data/",i,".csv"))
 }
 
-df <- purrr::map_dfr( list.files("../../data",full.names = T),read_csv  )
+
+```
+
+I saved each lyric file separately so i could do them on different days so as to be sympathetic to the server.
+
+```{r}
+# bit of a work around to make sure im taking the files in the right order
+# got to turn it into a df, extract the number and rearrange. not perfect
+ song_files <- fs::dir_ls("content/data") %>% as_tibble() %>% 
+   mutate(order =str_extract(value,"\\d+") %>% as.double() ) %>% 
+   arrange(order) %>% pull(value) 
+
+df <- purrr::map_dfr( song_files , read_csv  )
 
 ```
 
@@ -116,3 +128,35 @@ df <- df %>%
    song = parse_songs(song)
  )
 ```
+
+add album info. Ill add the album for the first song in the album, and then fill the rest in (downwards)
+
+```{r}
+df <- df %>% 
+  mutate(album = 
+           case_when(
+             song == "Infinite" ~ "Infinite (1996)",
+             song == "Intro Slim Shady" ~ "Slim Shady EP (1998)",
+             song == "Public Service Announcement Skit" ~ "Slim Shady LP (1999)",
+             song == "Public Service Announcement 2000 Skit" ~"The Marshall Mathers LP (2000)",
+             song == "Curtains Up Skit" ~  "The Eminem Show (2002)",
+             song == "Monkey See Monkey Do" ~  "Straight From The Lab (2003)",
+             song == "Curtains Up Encore Version" ~  "Encore (2004)",
+             song == "Intro" ~  " Curtain Call: The Hits (2005)",
+             song == "Shady Narcotics Eminem Intro" ~  "Eminem Presents The Re-Up (2006)"
+
+                            ) )%>% 
+  fill(album,.direction = "down") 
+
+
+df%>% count(album)
+```
+
+
+
+
+
+
+
+
+
