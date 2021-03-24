@@ -38,14 +38,14 @@ create_pups <- function(number_of_dogs) {
 now we can run the function to see how many male a female dogs were bred
 ```{r}
 set.seed(123)
-create_pups(9)
+create_pups(10)
 
 ```
 
 Harriet had 6 Males, 3 Females, great
 
 ```{r}
-create_pups(10)
+create_pups(9)
 ```
 and Matilda had 4 Males and 6 Females. 
 
@@ -64,8 +64,8 @@ sim <- sim %>% rowwise() %>%
   mutate(
     outcome_10_dogs = list(create_pups(10)) ,
     outcome_9_dogs = list(create_pups(9)),
-    Matilda_female = sum(outcome_10_dogs == "Female"),
-    Harriet_females = sum(outcome_9_dogs == "Male")
+    Harriet_female = sum(outcome_10_dogs == "Female"),
+    Matilda_females = sum(outcome_9_dogs == "Male")
   ) %>% ungroup()
 
 sim %>%
@@ -82,6 +82,8 @@ sim %>%
 Great, with almost no thought at all, we've figured out that Harriet has a 32% chance of of winning, Matila 50% and 18% chance of having the same number of puppies.
 
 Now lets build a quick shiny app to bring this simulation to life.
+
+<iframe height="800" width="100%" frameborder="no" src="https://citrez.shinyapps.io/dogs_simulation/"> </iframe>
 
 
 

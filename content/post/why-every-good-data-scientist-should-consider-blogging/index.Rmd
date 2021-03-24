@@ -6,7 +6,7 @@ slug: every-good-data-scientist-should-consider-blogging
 categories: []
 tags: []
 ---
-
+ 
 :boom:
 
 Lets cut to the chase here, in no particular order these are the skills that blogging will help you with.

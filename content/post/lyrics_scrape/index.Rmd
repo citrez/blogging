@@ -7,6 +7,7 @@ categories: [webscraping]
 tags: []
 editor_options: 
   chunk_output_type: console
+draft: true
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE,eval = F)
@@ -98,16 +99,15 @@ The purrr package has this useful function which applies my `possibly_extract_so
 
 library(readr)
 
-for (i in 127:136) {
+for (i in 198:217) {
   readr::write_csv(possibly_extract_song_and_lyrics(i),paste0("content/data/",i,".csv"))
 }
-
 
 ```
 
 I saved each lyric file separately so i could do them on different days so as to be sympathetic to the server.
 
-```{r}
+```{r,echo=F}
 # bit of a work around to make sure im taking the files in the right order
 # got to turn it into a df, extract the number and rearrange. not perfect
  song_files <- fs::dir_ls("content/data") %>% as_tibble() %>% 
@@ -142,7 +142,7 @@ df <- df %>%
              song == "Curtains Up Skit" ~  "The Eminem Show (2002)",
              song == "Monkey See Monkey Do" ~  "Straight From The Lab (2003)",
              song == "Curtains Up Encore Version" ~  "Encore (2004)",
-             song == "Intro" ~  " Curtain Call: The Hits (2005)",
+             song == "Intro" ~  "Curtain Call: The Hits (2005)",
              song == "Shady Narcotics Eminem Intro" ~  "Eminem Presents The Re-Up (2006)"
 
                             ) )%>% 
