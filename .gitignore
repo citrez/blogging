@@ -1,5 +1,4 @@
 .csv
-public/
 
 .xlsx
 .xls
@@ -7,5 +6,5 @@ public/
 .Rhistory
 .RData
 .Ruserdata
-content/data/
-public/data
+
+
