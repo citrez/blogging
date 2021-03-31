@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>File system on Ezra Citrons Website</title>
+    <title>file system on Ezra Citrons Website</title>
     <link>https://casualcoding.netlify.app/categories/file-system/</link>
-    <description>Recent content in File system on Ezra Citrons Website</description>
+    <description>Recent content in file system on Ezra Citrons Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 23 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://casualcoding.netlify.app/categories/file-system/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Use FS package for all you file system needs</title>
-      <link>https://casualcoding.netlify.app/use-fs-package-for-all-you-file-system-automoation-needs/</link>
+      <title>Be smart with file manipulation</title>
+      <link>https://casualcoding.netlify.app/2021/03/23/be-smart-with-file-manipulation/</link>
       <pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://casualcoding.netlify.app/use-fs-package-for-all-you-file-system-automoation-needs/</guid>
-      <description>Classic problem i stumbled across recently. I had a bunch of files in a directory, and i wanted to rename them all at once. Perfect excuse, i thought to myself, to check out the fs package for manipulating files.
-what is a file what is a directory Good to be clear at the offset. A directory is where you store your files. They call it a tree structure, because it looks like a tree.</description>
+      <guid>https://casualcoding.netlify.app/2021/03/23/be-smart-with-file-manipulation/</guid>
+      <description>Classic problem I stumbled across recently. I had a bunch of files in a directory, and i wanted to rename them all at once. Perfect excuse, i thought to myself, to check out the fs (in R) package for manipulating files.
+What is a file what is a directory Good to be clear at the offset. A directory is where you store your files. They call it a tree structure, because it looks like a tree.</description>
     </item>
     
   </channel>
