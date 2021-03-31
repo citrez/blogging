@@ -20,19 +20,75 @@ draft: true
 <p>Songs lyrics are just text. Why not use next generation technology to answer the age old questions of which musicians are the most basic. Good questions lead to good analysis. Here are the questions id like to address.</p>
 <ul>
 <li>Is there a notable difference in laguage used by Artists</li>
-<li>Which words or phrases are idiosyncratic of certain artists.</li>
+<li>Which words or phrases are idiosyncratic of certain artists..</li>
 <li>Which artists use more complicated laguage (lexical diversity , word length?)</li>
 </ul>
 <p>I obviously need to pick a few artists to look at, so, (no judgement pls) i’ll go for Queen, Taylor swift, Simon and Garfunkle and Eminem for a varied selection.</p>
 <p>The topic of webscraping (downloading the stuff you see on the internet onto your computer in a slighly cleverer way than simply copying and pasting) is an interesting and fun topic, I go though the full process of how I scaped all 395 eminem songs (good luck copying and pasting) from www.azlyrics.com is my blog post will the real scrapy please stand up</p>
 </div>
 </div>
+<div id="most-used-words-overall-and-per-album" class="section level1">
+<h1>most used words, overall and per album</h1>
+</div>
 <div id="itdf-difference-between-albums" class="section level1">
 <h1>itdf difference between albums</h1>
-<pre class="r"><code>library(tidytext)</code></pre>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.3     ✓ purrr   0.3.4
+## ✓ tibble  3.1.0     ✓ dplyr   1.0.4
+## ✓ tidyr   1.1.2     ✓ stringr 1.4.0
+## ✓ readr   1.4.0     ✓ forcats 0.5.1</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(tidytext)
+
+
+
+df &lt;- read_csv(&quot;../../../static/data/eminem_lyrics/lyrics.csv&quot;)</code></pre>
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   lyrics = col_character(),
+##   song = col_character(),
+##   album = col_character()
+## )</code></pre>
+<pre class="r"><code>df_clean &lt;- df %&gt;% 
+  mutate(album_date = str_extract(album,&quot;\\d+&quot;),
+         album = str_remove(album,&quot;\\(\\d+\\)&quot;))
+
+df_tokens &lt;- df_clean %&gt;% 
+  tidytext::unnest_tokens(output = word,input = lyrics)
+
+custom_stop_words &lt;- tidytext::stop_words %&gt;%
+  filter(lexicon == &#39;snowball&#39;)
+
+df_tokens %&gt;%
+  anti_join(custom_stop_words) %&gt;%
+  group_by(album) %&gt;%
+  slice_head(n = 5)</code></pre>
+<pre><code>## Joining, by = &quot;word&quot;</code></pre>
+<pre><code>## # A tibble: 95 x 4
+## # Groups:   album [19]
+##    song                         album                        album_date word   
+##    &lt;chr&gt;                        &lt;chr&gt;                        &lt;chr&gt;      &lt;chr&gt;  
+##  1 Intro                        &quot;Curtain Call: The Hits &quot;    2005       woo    
+##  2 Intro                        &quot;Curtain Call: The Hits &quot;    2005       hey    
+##  3 Intro                        &quot;Curtain Call: The Hits &quot;    2005       guys   
+##  4 Intro                        &quot;Curtain Call: The Hits &quot;    2005       want   
+##  5 Intro                        &quot;Curtain Call: The Hits &quot;    2005       alright
+##  6 Shady Narcotics Eminem Intro &quot;Eminem Presents The Re-Up &quot; 2006       yeah   
+##  7 Shady Narcotics Eminem Intro &quot;Eminem Presents The Re-Up &quot; 2006       god    
+##  8 Shady Narcotics Eminem Intro &quot;Eminem Presents The Re-Up &quot; 2006       damn   
+##  9 Shady Narcotics Eminem Intro &quot;Eminem Presents The Re-Up &quot; 2006       feels  
+## 10 Shady Narcotics Eminem Intro &quot;Eminem Presents The Re-Up &quot; 2006       like   
+## # … with 85 more rows</code></pre>
 </div>
 <div id="album-flow" class="section level1">
 <h1>album ‘flow’</h1>
+</div>
+<div id="overall-sentiment" class="section level1">
+<h1>overall sentiment</h1>
 </div>
 <div id="sentiment-over-time---is-eminem-going-soft" class="section level1">
 <h1>sentiment over time - is eminem going soft?</h1>
@@ -41,22 +97,6 @@ draft: true
 <h1>Fastest songs.</h1>
 <div id="words-per-min-sylables-per-min.-enrich-with-song-length-data." class="section level2">
 <h2>words per min, sylables per min. Enrich with song length data.</h2>
-</div>
-</div>
-<div id="including-plots" class="section level1">
-<h1>Including Plots</h1>
-<p>You can also embed plots. See Figure <a href="#fig:pie">1</a> for example:</p>
-<pre class="r"><code>par(mar = c(0, 1, 0, 1))
-pie(
-  c(280, 60, 20),
-  c(&#39;Sky&#39;, &#39;Sunny side of pyramid&#39;, &#39;Shady side of pyramid&#39;),
-  col = c(&#39;#0292D8&#39;, &#39;#F7EA39&#39;, &#39;#C4B632&#39;),
-  init.angle = -50, border = NA
-)</code></pre>
-<div class="figure"><span id="fig:pie"></span>
-<img src="{{< blogdown/postref >}}index_files/figure-html/pie-1.png" alt="A fancy pie chart." width="672" />
-<p class="caption">
-Figure 1: A fancy pie chart.
-</p>
+<p>`</p>
 </div>
 </div>

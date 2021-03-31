@@ -13,7 +13,6 @@ draft: true
 knitr::opts_chunk$set(collapse = TRUE)
 ```
 
-
 # Text Mining with Eminem 
 
 Text mining promises a lot. The ability to get a machine to understand the main topics in a text, or how positive the writer was about the subject could have applications as far reaching as law, analysing survey responces, stock market analysis. I usually favor simplicity over perfection. I'd rather have a 6/10 model that I can interpret and (crucially) explain than a 9/10 model that no one can get their head around. This is why i was so excited when I saw the `tidytext` package from [Julia Sigle](https://juliasilge.com/) at Rstudio. 
@@ -32,11 +31,21 @@ I obviously need to pick a few artists to look at, so, (no judgement pls) i'll g
 
 The topic of webscraping (downloading the stuff you see on the internet onto your computer in a slighly cleverer way than simply copying and pasting) is an interesting and fun topic, I go though the full process of how I scaped all 395 eminem songs (good luck copying and pasting) from www.azlyrics.com is my blog post will the real scrapy please stand up
 
+# most used words, overall and per album
+```{r}
+
+```
+
+
 
 # itdf difference between albums
 ```{r}
 library(tidyverse)
 library(tidytext)
+
+
+
+df <- read_csv("../../../static/data/eminem_lyrics/lyrics.csv")
 
 df_clean <- df %>% 
   mutate(album_date = str_extract(album,"\\d+"),
@@ -45,7 +54,8 @@ df_clean <- df %>%
 df_tokens <- df_clean %>% 
   tidytext::unnest_tokens(output = word,input = lyrics)
 
-custom_stop_words <- tidytext::stop_words %>% filter(lexicon == 'snowball')
+custom_stop_words <- tidytext::stop_words %>%
+  filter(lexicon == 'snowball')
 
 df_tokens %>%
   anti_join(custom_stop_words) %>%
@@ -71,16 +81,4 @@ df_tokens %>%
 # Fastest songs. 
 ## words per min, sylables per min. Enrich with song length data. 
 
-# Including Plots
-
-You can also embed plots. See Figure \@ref(fig:pie) for example:
-
-```{r pie, fig.cap='A fancy pie chart.', tidy=FALSE}
-par(mar = c(0, 1, 0, 1))
-pie(
-  c(280, 60, 20),
-  c('Sky', 'Sunny side of pyramid', 'Shady side of pyramid'),
-  col = c('#0292D8', '#F7EA39', '#C4B632'),
-  init.angle = -50, border = NA
-)
-```
+`
