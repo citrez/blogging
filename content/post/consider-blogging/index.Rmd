@@ -5,6 +5,7 @@ date: '2021-03-23'
 slug: every-good-data-scientist-should-consider-blogging
 categories: []
 tags: []
+draft: true
 ---
  
 :boom:
