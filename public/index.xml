@@ -6,36 +6,7 @@
     <description>Recent content on Ezra Citrons Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 31 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://casualcoding.netlify.app/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Creating Packages</title>
-      <link>https://casualcoding.netlify.app/2021/03/31/creating-packages/</link>
-      <pubDate>Wed, 31 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://casualcoding.netlify.app/2021/03/31/creating-packages/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Upgrade Your Visuals</title>
-      <link>https://casualcoding.netlify.app/2021/03/25/upgrade-your-visuals/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://casualcoding.netlify.app/2021/03/25/upgrade-your-visuals/</guid>
-      <description>This will be a three part series, the first will describe high, level how one can go about upgrading their vis skills, some resources, and packages that we can use. We’ll run through an example in a subsequent post. The post is heavily inspired by the work of Cedric Scherer (I thought i was pretty good before i saw this guy) and posts from The Pudding
-Good, like really good visulisation library(tidyverse) ## ── Attaching packages ─────────────────────────────────────── tidyverse 1.</description>
-    </item>
-    
-    <item>
-      <title>Be smart with file manipulation</title>
-      <link>https://casualcoding.netlify.app/2021/03/23/be-smart-with-file-manipulation/</link>
-      <pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://casualcoding.netlify.app/2021/03/23/be-smart-with-file-manipulation/</guid>
-      <description>Classic problem I stumbled across recently. I had a bunch of files in a directory, and i wanted to rename them all at once. Perfect excuse, i thought to myself, to check out the fs (in R) package for manipulating files.
-What is a file what is a directory Good to be clear at the offset. A directory is where you store your files. They call it a tree structure, because it looks like a tree.</description>
-    </item>
-    
+    <lastBuildDate>Tue, 23 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://casualcoding.netlify.app/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Consider blogging</title>
       <link>https://casualcoding.netlify.app/2021/03/23/consider-blogging/</link>
@@ -53,66 +24,6 @@ I think good data scientist should consider blogging Lets cut to the chase here,
     </item>
     
     <item>
-      <title>Eminem Lyric analysis with R</title>
-      <link>https://casualcoding.netlify.app/2021/03/23/eminem-lyric-analysis-with-r/</link>
-      <pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://casualcoding.netlify.app/2021/03/23/eminem-lyric-analysis-with-r/</guid>
-      <description>Text Mining with Eminem Text mining promises a lot. The ability to get a machine to understand the main topics in a text, or how positive the writer was about the subject could have applications as far reaching as law, analysing survey responces, stock market analysis. I usually favor simplicity over perfection. I’d rather have a 6/10 model that I can interpret and (crucially) explain than a 9/10 model that no one can get their head around.</description>
-    </item>
-    
-    <item>
-      <title>How to not reinvent the wheel</title>
-      <link>https://casualcoding.netlify.app/2021/03/23/dont-re-invent-the-wheel/</link>
-      <pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://casualcoding.netlify.app/2021/03/23/dont-re-invent-the-wheel/</guid>
-      <description>Machine learning is a large topic, but if you are ever at the cross roads and the choice is between picking an unfamiliar novel technique and an old classic. Be very sure that there is tangable advantage to going with the more complex solution.
-There is a takeoff between predictive power and interpretablilty. Sometime i feel like this graph should be stapled to my forehead.
-Learning Curb Modeling does not work in silos, there is significant time cost involved with getting everyone up to speed.</description>
-    </item>
-    
-    <item>
-      <title>Purrr, the most underrated package in the tidyverse</title>
-      <link>https://casualcoding.netlify.app/2021/03/23/purrr-the-most-underrated-package-in-the-tidyverse/</link>
-      <pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://casualcoding.netlify.app/2021/03/23/purrr-the-most-underrated-package-in-the-tidyverse/</guid>
-      <description>Map  Reduce  Possibly, Safely, Quieitly Possibly (along with similar function safelyt and quitely) are all functions which update the behaviour or other functions, so that if (read: when) something goes wrong in your code, R doesnt have a strop, and halt your code, loosing all your progress, you can decide its behavior. Here, i will tell R that if i dont get the lyrics, song dataframe i want, just retrun an empty one and add it to the list.</description>
-    </item>
-    
-    <item>
-      <title>Stop thinking, start simulating</title>
-      <link>https://casualcoding.netlify.app/2021/03/23/stop-thinking-start-simulating/</link>
-      <pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://casualcoding.netlify.app/2021/03/23/stop-thinking-start-simulating/</guid>
-      <description>My mother is a keen reader of ‘the daily scientist’, a UK based popular science magazine. Invariably over a given weekend she’ll exclaim that the latest estimate for the age universe or .
-Unusually, she shared a piece that I got me interested, so here it is…
-&#34;Dog breeder Harriet Hound’s prize pooch has just had 10 puppies. She is particularly pleased, because there are only nine puppies in the latest litter of her arch-rival, Matilda Mutt.</description>
-    </item>
-    
-    <item>
-      <title>Understanding what is possible over remembering how to do it</title>
-      <link>https://casualcoding.netlify.app/2021/03/23/understanding-what-is-possible-over-remembering-how-to-do-it/</link>
-      <pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://casualcoding.netlify.app/2021/03/23/understanding-what-is-possible-over-remembering-how-to-do-it/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Will the real scrapy please stand up</title>
-      <link>https://casualcoding.netlify.app/2021/03/22/lyrics-scrape/</link>
-      <pubDate>Mon, 22 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://casualcoding.netlify.app/2021/03/22/lyrics-scrape/</guid>
-      <description>Scraping lyrics Title puns aside, I’ll be using the rvest package to scrape all Eminem song lyrics from here
-We will also need to clean up these columns using regex
-Now that we have our function to get the lyrics extract_lyrics_from_link and parse_lyrics to clean it up, we can simply loop over the number of songs on the website, and save all the lyrics. Ahh, the satisfaction of running a loop…</description>
-    </item>
-    
-    <item>
       <title>About Me</title>
       <link>https://casualcoding.netlify.app/main_page/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -120,15 +31,6 @@ Now that we have our function to get the lyrics extract_lyrics_from_link and par
       <guid>https://casualcoding.netlify.app/main_page/about/</guid>
       <description>Hi, welcome to my blog! I’m a maths graduate now working as a data scientist in the city of London. I’ll be using this blog to write up topics that i find interesting, or just code that I find elegant and occasionally just general musings. Feel free to leave a comment beneath my posts a get involved.
 About my blog This blog is just as much for me as for you.</description>
-    </item>
-    
-    <item>
-      <title>CV</title>
-      <link>https://casualcoding.netlify.app/main_page/cv/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://casualcoding.netlify.app/main_page/cv/</guid>
-      <description>  </description>
     </item>
     
     <item>

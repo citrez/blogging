@@ -46,9 +46,7 @@ The topic of webscraping (downloading the stuff you see on the internet onto you
 library(tidyverse)
 library(tidytext)
 
-
-
-df <- read_csv("../../../static/data/eminem_lyrics/lyrics.csv")
+df <- read_csv("data/eminem_lyrics/lyrics.csv")
 
 df_clean <- df %>% 
   mutate(album_date = str_extract(album,"\\d+"),
