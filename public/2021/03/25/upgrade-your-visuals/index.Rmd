@@ -1,0 +1,91 @@
+---
+title: Upgrade Your Visuals
+author: Ezra Citron
+date: '2021-03-25'
+slug: upgrade-your-visuals
+categories: []
+tags: []
+draft: true
+editor_options: 
+  chunk_output_type: console
+---
+
+This will be a three part series, the first will describe high, level how one can go about upgrading their vis skills, some resources, and packages that we can use. We'll run through an example in a subsequent post. The post is heavily inspired by the work of [Cedric Scherer](https://www.cedricscherer.com/) (I thought i was pretty good before i saw this guy) and posts from [The Pudding](https://pudding.cool/)
+
+## Good, like _really_ good visulisation
+
+
+
+
+```{r}
+library(tidyverse)
+library(ggsci)
+library(showtext)
+
+theme_set(theme_bw(base_size = 5)) # using bases is amazing! do this!
+
+## Loading Google fonts (https://fonts.google.com/)
+sysfonts::font_add_google("Gochi Hand", "gochi")
+sysfonts::font_add_google("Schoolbell", "bell")
+sysfonts::font_add_google(name = "Rubik Mono One")
+## Automatically use showtext to render text
+showtext_auto()
+
+overall_avg <- mpg %>% summarise(mean(cty)) %>% pull()
+
+(g <- mpg %>% 
+  ggplot(aes(cty,hwy,color = class))+
+  geom_abline(slope = 0,intercept  = overall_avg,color = 'grey70',size = 1)+
+  geom_jitter(position = position_jitter(seed= 2021,height = 20) )+ # didnt know you cuodl set seed here
+  scale_x_continuous(expand = c(0.05,0.05))+
+    geom_rug(show.legend = F,sides = "tr",size=3,alpha = 0.3)+ # use geom rug, v easy, v cool
+    ggsci::scale_color_rickandmorty()+
+  labs(x = "City (mpg)",title = "Exapmple of how i might use fonts")+
+  theme(title = element_text(family = "Rubik Mono One"),
+        legend.text =  element_text(family = "gochi"),
+        panel.grid    = element_blank()
+        )+
+  stat_summary(fun = median,  geom = 'point',color = 'white',size = 3,alpha = 0.6) )
+  
+g_for_grob <- g+
+    theme(line = element_blank(),
+          panel.background = element_rect(fill = "transparent"),
+          plot.background = element_rect(fill = "transparent", color = "transparent"),
+         #panel.border = element_rect(color = "transparent"),
+          strip.background = element_rect(color = "gray20"),
+          axis.text = element_blank(),
+          plot.margin = margin(0, 0, 0, 0),
+          legend.position = 'none') +
+    labs(x = NULL, y = NULL,title = NULL)
+
+grob_of_g <- ggplot2::ggplotGrob(g_for_grob)
+
+g+annotation_custom(grob = grob_of_g, xmin = 25, xmax = 35, ymin = 0, ymax = 20)
+
+```
+
+
+
+going through the cedric scherer tutorial, lets do this, i think i will learn very much 
+```{r}
+chic <- readr::read_csv("https://raw.githubusercontent.com/Z3tt/R-Tutorials/master/ggplot2/chicago-nmmaps.csv")
+
+```
+
+
+```{r}
+library(patchwork)
+
+g+g/g
+
+my_design <- "
+A#CC
+A#DD
+AB##
+AB##
+"
+
+g+g+g+g+plot_layout(design = my_design)
+
+```
+

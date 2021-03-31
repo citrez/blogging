@@ -1,0 +1,54 @@
+---
+title: "Resources"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+<p style="text-align: center;">Here is a collection of things that i use.
+I hope to update this regularly</p>
+
+## R and packages
+- R for Data Science for me is the definitive guide to Data Science in R. It is both highly approachable and can really get you quite far along with your data needs. 
+
+- *The* resource for building package in R.[R Packages](https://r-pkgs.org/) by Hadley Wickham.
+
+- [tidytext](https://www.tidytextmining.com/) for interpretable ways of gaining insight from text data
+
+## Bloggers
+- Julia Silge has an incredible youtube channel, taking you through all things tidymodelling. Super useful resource, if, like me, you'd like a framework to rival scikit-learn that will keep you safely within the confines of Rstudio. She also has a [blog](https://juliasilge.com/)
+
+- [Ryans tutorials](https://ryanstutorials.net/) are a cool resource for learning for an introduction to some useful techonolgy
+
+- [Story Bench](https://www.storybench.org/category/how-to/) has tons of interesting bloggs
+
+- [StatQuest](https://www.youtube.com/channel/UCtYLUTtgS3k1Fg4y5tAhLbw) with Josh Stalmer. Simple explanations of all things Stats/ML with a healthy dose of ironci uekele playing, whats not to like?
+
+## Visualising
+
+- The [R Graph gallery](https://www.r-graph-gallery.com/) and this website as a whole is an absolutely indispensable resource. Not only does it have practically every visualization that you could possibly hope to make in r, but it gives you simple reproducible code to go along with it. This site similarly caters for python, and D3 (would love to learn more D3, so watch this space). It also links to their [data-to-vis](https://www.data-to-viz.com/#explore) websites, which offers a decision tree to pick appropriate visual along with the relevant caveats. 
+
+- GGplot2 book by hadley is the definitive guide for ggplot2, which is the go-to vis package in R.
+
+## Other great books/sites
+
+- An introduction to statisical learning with applications in R. A great book for understanding the key ideas in ML, offers a readable and no-nonsense introduction. Although I find the "application in R" a bit 'base R'-y for my liking.
+
+- Regex is like a superpower. Once you know it, you'll wonder how you ever got by without it. The good news is, it is more important to know what is possible, that remember exactly how to implement it
+
+## Amazing Websites that deserve more attention
+
+
+- Have you ever wished you know more about git? (the answer should always be yes)
+[git-school](https://git-school.github.io/visualizing-git/) have created this neat little webpage that helps you visualise what goes on when you hit that dreaded git pull.
+
+- CSS selectors, useful for telling a computer which part of a webpage you want it to grab. 
+[flukeout](https://flukeout.github.io/) does an incredible job at gameifying CSS selection. If you're not careful, you won't even realise you're learning. 
+
+- [Library of Babel](https://libraryofbabel.info/) makes you think about randomness
+
+-[Pudding](https://pudding.cool/) is website dedicated to cool visualisation. Worth checking out for some inspo.
+
+
+## Packages I dig

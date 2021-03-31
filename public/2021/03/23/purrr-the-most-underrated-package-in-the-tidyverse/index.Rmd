@@ -1,0 +1,27 @@
+---
+title: Purrr, the most underrated package in the tidyverse
+author: R package build
+date: '2021-03-23'
+slug: purrr-the-most-underrated-package-in-the-tidyverse
+categories: []
+tags: []
+draft: true
+---
+
+## Map
+
+## Reduce
+
+## Possibly, Safely, Quieitly
+
+Possibly (along with similar function safelyt and quitely) are all functions which update the behaviour or other functions, so that if (read: when) something goes wrong in your code, R doesnt have a strop, and halt your code, loosing all your progress, you can decide its behavior. Here, i will tell R that if i dont get the lyrics, song dataframe i want, just retrun an empty one and add it to the list. The quiet = F just tells say "even though i dont want the error to ruin everything, I still want to hear about it".
+```{r}
+
+library(purrr)
+
+`+`(1,1)
+
+`possibly+` <- possibly(`+`,otherwise = '17',quiet = F) 
+`possibly+`(1,'hi')
+
+```

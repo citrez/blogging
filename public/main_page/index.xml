@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Main_pages on Ezra Citrons Website</title>
+    <link>https://casualcoding.netlify.app/main_page/</link>
+    <description>Recent content in Main_pages on Ezra Citrons Website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://casualcoding.netlify.app/main_page/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Me</title>
+      <link>https://casualcoding.netlify.app/main_page/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://casualcoding.netlify.app/main_page/about/</guid>
+      <description>Hi, welcome to my blog! I’m a maths graduate now working as a data scientist in the city of London. I’ll be using this blog to write up topics that i find interesting, or just code that I find elegant and occasionally just general musings. Feel free to leave a comment beneath my posts a get involved.
+About my blog This blog is just as much for me as for you.</description>
+    </item>
+    
+    <item>
+      <title>Resources</title>
+      <link>https://casualcoding.netlify.app/main_page/resources/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://casualcoding.netlify.app/main_page/resources/</guid>
+      <description>Here is a collection of things that i use. I hope to update this regularly R and packages  R for Data Science for me is the definitive guide to Data Science in R. It is both highly approachable and can really get you quite far along with your data needs.
+ The resource for building package in R.R Packages by Hadley Wickham.
+ tidytext for interpretable ways of gaining insight from text data</description>
+    </item>
+    
+  </channel>
+</rss>

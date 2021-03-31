@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.82.0" />
+
+
+<title>Be smart with file manipulation - Ezra Citrons Website</title>
+<meta property="og:title" content="Be smart with file manipulation - Ezra Citrons Website">
+
+
+  <link href='https://casualcoding.netlify.app/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/main_page/about">About</a></li>
+    
+    <li><a href="/main_page/cv/">CV</a></li>
+    
+    <li><a href="https://github.com/citrez">GitHub</a></li>
+    
+    <li><a href="/main_page/resources">Resources</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">3 min read</span>
+    
+
+    <h1 class="article-title">Be smart with file manipulation</h1>
+
+    
+    <span class="article-date">2021-03-23</span>
+    
+
+    <div class="article-content">
+      
+
+
+<p>Classic problem I stumbled across recently. I had a bunch of files in a directory, and i wanted to rename them all at once. Perfect excuse, i thought to myself, to check out the fs (in R) package for manipulating files.</p>
+<div id="what-is-a-file-what-is-a-directory" class="section level2">
+<h2>What is a file what is a directory</h2>
+<p>Good to be clear at the offset. A directory is where you store your files.
+They call it a tree structure, because it looks like a tree. Take a look at one of the directories used to make this blog.</p>
+<pre><code>## ..
+## ├── consider-blogging
+## ├── dont-reinvent-the-wheel
+## ├── fs-package
+## ├── lyric_analysis
+## ├── lyrics_scrape
+## ├── purrr-package
+## ├── simulation
+## ├── understanding-what-is-possible
+## └── upgrade-your-visuals</code></pre>
+<p>fs has a set of functions to deal with both files and directories.</p>
+</div>
+<div id="what-is-the-game" class="section level2">
+<h2>What is the game?</h2>
+<p>The game is very simple, creating, deleting, moving and changing the name of files and directories. That’s it, its not rocket science. Its very simple, im sure you’ve all done all of these things before. All we are going to discuss is a different (more automatable) way of doing these things, in the hope that it will save you time for large batch jobs.</p>
+</div>
+<div id="create-a-folder-to-play-with" class="section level1">
+<h1>create a folder to play with</h1>
+<p>First, lets see where you are. With computers, at any given point you are somewhere in your machine. Where are you? well you can find out using path_wd()</p>
+<pre><code>## /Users/ezracitron/Documents/repos/blogging/content/post/fs-package</code></pre>
+<p>lets make a directory, called tester</p>
+<p>lets put 10 folders in, called folder_1, folder_2 etc. Here comes the power of working with fs rather than doing things manually. Now we can just loop, or create with vectorised operations.</p>
+<p>if we wanted to delete a few, its be just as easy.</p>
+<p>inspect files using a tree</p>
+<pre><code>## tester
+## ├── folder_1
+## │   └── my_file.csv
+## ├── folder_2
+## ├── folder_3
+## ├── folder_4
+## └── folder_5</code></pre>
+<p>another way of looking is to chuck it into a dataframe to get all the info. this has the file path, whether it is a file or dir, the size, permissions, when it was last modified and more…</p>
+<pre><code>## # A tibble: 5 x 18
+##   path        type    size permissions modification_time   user  group device_id
+##   &lt;fs::path&gt;  &lt;fct&gt;  &lt;fs:&gt; &lt;fs::perms&gt; &lt;dttm&gt;              &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt;
+## 1 tester/fol… direc…    96 rwxr-xr-x   2021-03-31 16:06:21 ezra… staff  16777222
+## 2 tester/fol… direc…    64 rwxr-xr-x   2021-03-31 16:06:21 ezra… staff  16777222
+## 3 tester/fol… direc…    64 rwxr-xr-x   2021-03-31 16:06:21 ezra… staff  16777222
+## 4 tester/fol… direc…    64 rwxr-xr-x   2021-03-31 16:06:21 ezra… staff  16777222
+## 5 tester/fol… direc…    64 rwxr-xr-x   2021-03-31 16:06:21 ezra… staff  16777222
+## # … with 10 more variables: hard_links &lt;dbl&gt;, special_device_id &lt;dbl&gt;,
+## #   inode &lt;dbl&gt;, block_size &lt;dbl&gt;, blocks &lt;dbl&gt;, flags &lt;int&gt;, generation &lt;dbl&gt;,
+## #   access_time &lt;dttm&gt;, change_time &lt;dttm&gt;, birth_time &lt;dttm&gt;</code></pre>
+<p>lets end off this exploration by leaving no trace and deleting our tester directory</p>
+<p>Done.</p>
+<div id="manipulate-file-paths" class="section level2">
+<h2>manipulate file paths</h2>
+<p>If you ever thought, ’ i cant be bother to write out “my/path/to/my/file/file.txt”, let <code>fs::path()</code> do the work <code>fs::path("my/path/to","my","file","file", ext = "txt")</code> the benefit here, as with all fs functions, they are vectorised. So if you wanted to make 20 file path in the same directory called my/path/to/my/file/file1.txt,my/path/to/my/file/file2.txt .. etc its as simple as <code>fs::path("my/path/to","my","file","file",1:20, ext = "txt")</code>. Vectorised functions are an important thing to understand in R, but once you understand vectorised functions, it’ll change the way you understand R - check out my thoughts about it here.</p>
+<p><code>fs::path_wd()</code> is tells you where you are.
+<code>fs::dir_ls('.')</code> is also your friend, it tell what is in the place you are in.</p>
+</div>
+</div>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        An Ezra Citron Webisite
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+            
+          </li>
+                 
+          
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+    
+  </body>
+</html>
+

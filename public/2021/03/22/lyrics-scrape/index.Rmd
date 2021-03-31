@@ -1,0 +1,174 @@
+---
+title: Will the real scrapy please stand up
+author: R package build
+date: '2021-03-22'
+slug: lyrics-scrape
+categories: [webscraping]
+tags: []
+editor_options: 
+  chunk_output_type: console
+draft: true
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,eval = F)
+
+```
+
+# Scraping lyrics
+
+![](/images/logo1.png)
+
+Title puns aside, I'll be using the `rvest` package to scrape all Eminem song lyrics from [here](www.azlyrics.com)
+
+```{r scrape}
+library(rvest)
+library(tidyverse)
+url <- "https://www.azlyrics.com/e/eminem.html"
+html <- xml2::read_html(url)
+links_to_songs <- html %>% html_nodes(css = "#listAlbum a") 
+
+length(links_to_songs)
+links_to_songs[length(links_to_songs)]
+
+
+extract_song_and_lyrics <- function(i) {
+  
+  lyric_text <- rvest::html_session(url) %>% 
+  rvest::follow_link(i = i) %>% 
+    #css seletor of class text-center, element div
+  rvest::html_nodes(".text-center div") %>% 
+  rvest::html_text()
+  
+  lyric_text <- 
+    #filtering out sections i dont want
+    lyric_text[ str_detect(lyric_text,"Android\\|webOS\\|iPhone",negate = T)] 
+  
+  song_name <- lyric_text[str_detect(lyric_text ,"lyrics$")]
+  
+  # Assume the longest section is the actual lyrics
+  filtered_lyric_text <-
+    #work out how todo using which
+    lyric_text[str_length(lyric_text) == max(str_length(lyric_text))] 
+  
+  df <- tibble::tibble(lyrics = filtered_lyric_text, song = song_name)
+  
+  Sys.sleep(5)
+  
+  return(df)
+  
+  
+}
+
+```
+
+We will also need to clean up these columns using regex
+```{r}
+parse_lyrics <- function(x) {
+
+str_replace_all(x, "[\r\n]"," " ) %>%
+  str_squish() # deletes repeated white space
+}
+
+parse_songs <- function(x) {
+  
+  str_remove_all(x,"[:punct:]| lyrics")
+  
+}
+
+```
+
+Now that we have our function to get the lyrics `extract_lyrics_from_link` and `parse_lyrics` to clean it up, we can simply loop over the number of songs on the website, and save all the lyrics. Ahh, the satisfaction of running a loop...
+
+Theres one more step i want to take before i run the loop, the last thing is for everything to work great for the first 200 songs, and then i get an error on the 201st song and i need to start the scrape again. 
+So i use this great function called `possibly()` from the `purrr` package, which i talk about in this blog post
+
+
+```{r}
+
+library(purrr)
+
+possibly_extract_song_and_lyrics<- possibly(extract_song_and_lyrics,
+                                    otherwise = tibble::tibble(lyrics = character(0),song = character(0)),quiet = F)
+
+```
+
+This is one of those many moments where the tidyverse feel like it has the perfect function. 
+The purrr package has this useful function which applies my `possibly_extract_song_and_lyrics` function to each 36,37,38.. each of these functions return a dataframe, map_dfr sticks all those 395 mini dataframes together.  
+
+```{r,eval=F}
+
+library(readr)
+
+# for (i in 336:340) {
+#   readr::write_csv(possibly_extract_song_and_lyrics(i),paste0("content/data/",i,".csv"))
+# }
+
+```
+
+I saved each lyric file separately so i could do them on different days so as to be sympathetic to the server.
+
+```{r,echo=F}
+# bit of a work around to make sure im taking the files in the right order
+# got to turn it into a df, extract the number and rearrange. not perfect
+ song_files <- fs::dir_ls("content/data") %>% as_tibble() %>% 
+   mutate(order =str_extract(value,"\\d+") %>% as.double() ) %>% 
+   arrange(order) %>% pull(value) 
+
+df <- purrr::map_dfr( song_files , read_csv  )
+
+```
+
+I then save all the songs locally, so i don't need to re download them every time
+now lets clean everything up with a bunch of parsing functions for the messy song and lyrics columns.
+
+```{r}
+df <- df %>%
+ mutate(
+   lyrics = parse_lyrics(lyrics),
+   song = parse_songs(song)
+ )
+```
+
+add album info. Ill add the album for the first song in the album, and then fill the rest in (downwards)
+
+```{r}
+
+album_vector <- map2(
+  .x = c(
+    "Infinite (1996)",
+    "Slim Shady EP (1998)",
+    "Slim Shady LP (1999)",
+    "The Marshall Mathers LP (2000)",
+    "The Eminem Show (2002)",
+    "Straight From The Lab (2003)",
+    "Encore (2004)",
+    "Curtain Call: The Hits (2005)",
+    "Eminem Presents The Re-Up (2006)",
+    "Realapse (2009)",
+    "Relapse: Refill (2009)",
+    "Recovery (2010)",
+    "Straight From The Vault (2011)",
+    "The Marshall Mathers LP 2 (2013)",
+    "Shady XV (2014)",
+    "Revival (2017)",
+    "Kamikaze (2018)",
+    "Music To Be Murdered By (2020)",
+    "Music To Be Murdered By - Side B (2020)"
+  ),
+  .y = c(11, 8, 22, 19, 20, 7, 23, 23, 9, 22, 7, 19, 11, 22, 13, 19, 13, 20, 16),
+  ~ rep(.x, .y)
+) %>% unlist()
+
+df <- df %>% 
+  mutate(album = album_vector)
+
+df%>% count(album)
+```
+
+
+
+
+
+
+
+

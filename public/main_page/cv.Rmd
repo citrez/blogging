@@ -1,0 +1,13 @@
+---
+title: "CV"
+output: html_document
+draft: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+<iframe style = "block;border:0" src="../../gdrive_cv.html" width="100%" height="2200" title="W3Schools Free Online Web Tutorials"></iframe>
+

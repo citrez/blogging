@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.82.0" />
+
+
+<title>Will the real scrapy please stand up - Ezra Citrons Website</title>
+<meta property="og:title" content="Will the real scrapy please stand up - Ezra Citrons Website">
+
+
+  <link href='https://casualcoding.netlify.app/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/main_page/about">About</a></li>
+    
+    <li><a href="/main_page/cv/">CV</a></li>
+    
+    <li><a href="https://github.com/citrez">GitHub</a></li>
+    
+    <li><a href="/main_page/resources">Resources</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+
+    <h1 class="article-title">Will the real scrapy please stand up</h1>
+
+    
+    <span class="article-date">2021-03-22</span>
+    
+
+    <div class="article-content">
+      
+
+
+<div id="scraping-lyrics" class="section level1">
+<h1>Scraping lyrics</h1>
+<p><img src="/images/logo1.png" /></p>
+<p>Title puns aside, I’ll be using the <code>rvest</code> package to scrape all Eminem song lyrics from <a href="www.azlyrics.com">here</a></p>
+<p>We will also need to clean up these columns using regex</p>
+<p>Now that we have our function to get the lyrics <code>extract_lyrics_from_link</code> and <code>parse_lyrics</code> to clean it up, we can simply loop over the number of songs on the website, and save all the lyrics. Ahh, the satisfaction of running a loop…</p>
+<p>Theres one more step i want to take before i run the loop, the last thing is for everything to work great for the first 200 songs, and then i get an error on the 201st song and i need to start the scrape again.
+So i use this great function called <code>possibly()</code> from the <code>purrr</code> package, which i talk about in this blog post</p>
+<p>This is one of those many moments where the tidyverse feel like it has the perfect function.
+The purrr package has this useful function which applies my <code>possibly_extract_song_and_lyrics</code> function to each 36,37,38.. each of these functions return a dataframe, map_dfr sticks all those 395 mini dataframes together.</p>
+<p>I saved each lyric file separately so i could do them on different days so as to be sympathetic to the server.</p>
+<p>I then save all the songs locally, so i don’t need to re download them every time
+now lets clean everything up with a bunch of parsing functions for the messy song and lyrics columns.</p>
+<p>add album info. Ill add the album for the first song in the album, and then fill the rest in (downwards)</p>
+</div>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        An Ezra Citron Webisite
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+            
+          </li>
+                 
+          
+        </ul>
+      </footer>
+
+    </div>
+    
+
+    
+
+    
+  </body>
+</html>
+
