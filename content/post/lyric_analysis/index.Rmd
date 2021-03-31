@@ -31,6 +31,9 @@ I obviously need to pick a few artists to look at, so, (no judgement pls) i'll g
 
 The topic of webscraping (downloading the stuff you see on the internet onto your computer in a slighly cleverer way than simply copying and pasting) is an interesting and fun topic, I go though the full process of how I scaped all 395 eminem songs (good luck copying and pasting) from www.azlyrics.com is my blog post will the real scrapy please stand up
 
+# words per songs
+
+
 # most used words, overall and per album
 ```{r}
 

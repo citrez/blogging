@@ -2,11 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://casualcoding.netlify.app/2021/03/23/consider-blogging/</loc>
+    <lastmod>2021-03-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://casualcoding.netlify.app/</loc>
+    <lastmod>2021-03-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://casualcoding.netlify.app/post/</loc>
+    <lastmod>2021-03-23T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://casualcoding.netlify.app/main_page/about/</loc>
   </url><url>
     <loc>https://casualcoding.netlify.app/categories/</loc>
-  </url><url>
-    <loc>https://casualcoding.netlify.app/</loc>
   </url><url>
     <loc>https://casualcoding.netlify.app/main_page/</loc>
   </url><url>

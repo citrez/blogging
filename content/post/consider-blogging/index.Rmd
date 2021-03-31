@@ -5,7 +5,7 @@ date: '2021-03-23'
 slug: consider-blogging
 categories: []
 tags: []
-draft: true
+draft: false
 ---
  
 :boom:
@@ -14,6 +14,8 @@ I think good data scientist should consider blogging
 Lets cut to the chase here, in no particular order these are the skills that blogging will help you with.
 
 - ordering your thoughts
+
+- reminding yourself of things you've forgotten you knew how to do
 
 - finishing things.
 
@@ -30,3 +32,4 @@ b) Have a workbook of code/ blog where you can show evidence of things that you 
 i'm sure you'll make the right choice
 
 - Web developement. I see making a blog as my first, very tentative, exploration into the world of webdevelopment. I hope at the very least it will keep HTML and CSS fresh in my mind and think about how a website might be structured. There are lots of technologies involved in building websites, exposure to a few surely is no bad thing. Knowing the difference between a static and dynamic website, the file structure of a simple website
+

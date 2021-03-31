@@ -10,6 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 I hope to update this regularly</p>
 
 
+
 ## R and packages
 - R for Data Science for me is the definitive guide to Data Science in R. It is both highly approachable and can really get you quite far along with your data needs. 
 
@@ -18,6 +19,8 @@ I hope to update this regularly</p>
 - [tidytext](https://www.tidytextmining.com/) for interpretable ways of gaining insight from text data
 
 ## Bloggers
+- [Alison Hill](https://alison.rbind.io/projects/) is a recent find
+
 - Julia Silge has an incredible youtube channel, taking you through all things tidymodelling. Super useful resource, if, like me, you'd like a framework to rival scikit-learn that will keep you safely within the confines of Rstudio. She also has a [blog](https://juliasilge.com/)
 
 - [Ryans tutorials](https://ryanstutorials.net/) are a cool resource for learning for an introduction to some useful techonolgy

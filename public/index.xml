@@ -5,7 +5,24 @@
     <link>https://casualcoding.netlify.app/</link>
     <description>Recent content on Ezra Citrons Website</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://casualcoding.netlify.app/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Tue, 23 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://casualcoding.netlify.app/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Consider blogging</title>
+      <link>https://casualcoding.netlify.app/2021/03/23/consider-blogging/</link>
+      <pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://casualcoding.netlify.app/2021/03/23/consider-blogging/</guid>
+      <description>:boom:
+I think good data scientist should consider blogging Lets cut to the chase here, in no particular order these are the skills that blogging will help you with.
+ ordering your thoughts
+ reminding yourself of things you’ve forgotten you knew how to do
+ finishing things.
+ Communicating results to a non-technical audience.
+ practicing reproducibilty
+  -incentive to stay curious. I’m more likely to go that extra mile to check out an interesting sounding package if i think it could be the makings of an interesting blog post.</description>
+    </item>
+    
     <item>
       <title>About Me</title>
       <link>https://casualcoding.netlify.app/main_page/about/</link>
@@ -13,7 +30,7 @@
       
       <guid>https://casualcoding.netlify.app/main_page/about/</guid>
       <description>Hi, welcome to my blog! I’m a maths graduate now working as a data scientist in the city of London. I’ll be using this blog to write up topics that i find interesting, or just code that I find elegant and occasionally just general musings. Feel free to leave a comment beneath my posts a get involved.
-About my blog blogdown package. The theme was forked from [@jrutheiser/hugo-lithium-theme](https://github.com/jrutheiser/hugo-lithium-theme) and modified by Yihui Xie.</description>
+About my blog This blog is just as much for me as for you.</description>
     </item>
     
     <item>

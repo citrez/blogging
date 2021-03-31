@@ -8,14 +8,19 @@
     <language>en-us</language>
     <lastBuildDate>Tue, 23 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://casualcoding.netlify.app/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Stop thinking, start simulating</title>
-      <link>https://casualcoding.netlify.app/2021/03/23/stop-thinking-start-simulating/</link>
+      <title>Consider blogging</title>
+      <link>https://casualcoding.netlify.app/2021/03/23/consider-blogging/</link>
       <pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://casualcoding.netlify.app/2021/03/23/stop-thinking-start-simulating/</guid>
-      <description>My mother is a keen reader of ‘the daily scientist’, a UK based popular science magazine. Invariably over a given weekend she’ll exclaim that the latest estimate for the age universe or .
-Unusually, she shared a piece that I got me interested, so here it is…
-&#34;Dog breeder Harriet Hound’s prize pooch has just had 10 puppies. She is particularly pleased, because there are only nine puppies in the latest litter of her arch-rival, Matilda Mutt.</description>
+      <guid>https://casualcoding.netlify.app/2021/03/23/consider-blogging/</guid>
+      <description>:boom:
+I think good data scientist should consider blogging Lets cut to the chase here, in no particular order these are the skills that blogging will help you with.
+ ordering your thoughts
+ reminding yourself of things you’ve forgotten you knew how to do
+ finishing things.
+ Communicating results to a non-technical audience.
+ practicing reproducibilty
+  -incentive to stay curious. I’m more likely to go that extra mile to check out an interesting sounding package if i think it could be the makings of an interesting blog post.</description>
     </item>
     
   </channel>
