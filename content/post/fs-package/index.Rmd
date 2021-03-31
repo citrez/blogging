@@ -1,8 +1,8 @@
 ---
-title: Be smart with your file manipulation
+title: Be smart with file manipulation
 author: R package build
 date: '2021-03-23'
-slug: use-fs-package-for-all-you-file-system-automoation-needs
+slug: be-smart-with-file-manipulation
 categories: ["file system"]
 tags: ["R","file system"]
 draft: true

@@ -5,6 +5,7 @@ date: '2021-03-23'
 slug: stop-thinking-start-simulating
 categories: []
 tags: []
+draft: true
 ---
 
 My mother is a keen reader of 'the daily scientist', a UK based popular science magazine. Invariably over a given weekend she'll exclaim that the latest estimate for the age universe or . 

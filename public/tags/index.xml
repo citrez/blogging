@@ -5,34 +5,6 @@
     <link>https://casualcoding.netlify.app/tags/</link>
     <description>Recent content in Tags on Ezra Citrons Website</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 23 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://casualcoding.netlify.app/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>NLP</title>
-      <link>https://casualcoding.netlify.app/tags/nlp/</link>
-      <pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://casualcoding.netlify.app/tags/nlp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R Markdown</title>
-      <link>https://casualcoding.netlify.app/tags/r-markdown/</link>
-      <pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://casualcoding.netlify.app/tags/r-markdown/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>textmining</title>
-      <link>https://casualcoding.netlify.app/tags/textmining/</link>
-      <pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://casualcoding.netlify.app/tags/textmining/</guid>
-      <description></description>
-    </item>
-    
+    <language>en-us</language><atom:link href="https://casualcoding.netlify.app/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
