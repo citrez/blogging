@@ -74,10 +74,7 @@
 
 <div id="scraping-lyrics" class="section level1">
 <h1>Scraping lyrics</h1>
-<div class="figure">
-<img src="../../../public/images/logo1.png" alt="" />
-<p class="caption">title</p>
-</div>
+<p><img src="/images/logo1.png" /></p>
 <p>Title puns aside, I’ll be using the <code>rvest</code> package to scrape all Eminem song lyrics from <a href="www.azlyrics.com">here</a></p>
 <p>We will also need to clean up these columns using regex</p>
 <p>Now that we have our function to get the lyrics <code>extract_lyrics_from_link</code> and <code>parse_lyrics</code> to clean it up, we can simply loop over the number of songs on the website, and save all the lyrics. Ahh, the satisfaction of running a loop…</p>
@@ -86,7 +83,7 @@ So i use this great function called <code>possibly()</code> from the <code>purrr
 <p>This is one of those many moments where the tidyverse feel like it has the perfect function.
 The purrr package has this useful function which applies my <code>possibly_extract_song_and_lyrics</code> function to each 36,37,38.. each of these functions return a dataframe, map_dfr sticks all those 395 mini dataframes together.</p>
 <p>I saved each lyric file separately so i could do them on different days so as to be sympathetic to the server.</p>
-<p>I then save all the songs locally, so i dont need to re download them every time
+<p>I then save all the songs locally, so i don’t need to re download them every time
 now lets clean everything up with a bunch of parsing functions for the messy song and lyrics columns.</p>
 <p>add album info. Ill add the album for the first song in the album, and then fill the rest in (downwards)</p>
 </div>
@@ -100,13 +97,17 @@ now lets clean everything up with a bunch of parsing functions for the messy son
 </main>
 
       <footer class="footer">
+        An Ezra Citron Webisite
         <ul class="footer-links">
           <li>
             <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
           </li>
           <li>
             <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+            
           </li>
+                 
+          
         </ul>
       </footer>
 

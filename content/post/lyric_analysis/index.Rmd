@@ -25,7 +25,7 @@ I'm going to guide you through a piece a some text analysis, motivating why and 
 Songs lyrics are just text. Why not use next generation technology to answer the age old questions of which musicians are the most basic. Good questions lead to good analysis. Here are the questions id like to address.
 
 * Is there a notable difference in laguage used by Artists
-* Which words or phrases are idiosyncratic of certain artists.
+* Which words or phrases are idiosyncratic of certain artists..
 * Which artists use more complicated laguage (lexical diversity , word length?)
 
 I obviously need to pick a few artists to look at, so, (no judgement pls) i'll go for Queen, Taylor swift, Simon and Garfunkle and Eminem for a varied selection.
@@ -35,15 +35,38 @@ The topic of webscraping (downloading the stuff you see on the internet onto you
 
 # itdf difference between albums
 ```{r}
+library(tidyverse)
 library(tidytext)
 
+df_clean <- df %>% 
+  mutate(album_date = str_extract(album,"\\d+"),
+         album = str_remove(album,"\\(\\d+\\)"))
+
+df_tokens <- df_clean %>% 
+  tidytext::unnest_tokens(output = word,input = lyrics)
+
+custom_stop_words <- tidytext::stop_words %>% filter(lexicon == 'snowball')
+
+df_tokens %>%
+  anti_join(custom_stop_words) %>%
+  group_by(album) %>%
+  slice_head(n = 5)
 
 ```
 
 
 # album 'flow' 
 
+# overall sentiment
+```{r}
+
+```
+
+
 # sentiment over time - is eminem going soft?
+```{r}
+
+```
 
 # Fastest songs. 
 ## words per min, sylables per min. Enrich with song length data. 

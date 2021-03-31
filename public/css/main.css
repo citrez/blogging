@@ -205,7 +205,9 @@ img {
 }
 
 .footer {
-  padding: 25px 0;
+  padding: 25px 0; 
+  color: #888; 
+  font-size: 14px; 
   text-align: center;
 }
 
@@ -323,3 +325,4 @@ img {
     box-shadow: none;
   }
 }
+

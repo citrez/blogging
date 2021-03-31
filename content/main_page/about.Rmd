@@ -6,7 +6,8 @@ output: Rmd_document
 
 Hi, welcome to my blog!
 I'm a maths graduate now working as a data scientist in the city of London. 
-I'll be using this blog to write up topics that i find interesting, or just code that I find elegant and occasionally just general musings. Feel free to leave comments a get involved.
+I'll be using this blog to write up topics that i find interesting, or just code that I find elegant and occasionally just general musings. Feel free to leave a comment beneath my posts a get involved.
+
 
 ## About my blog
 

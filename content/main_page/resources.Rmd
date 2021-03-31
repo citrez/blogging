@@ -9,10 +9,13 @@ knitr::opts_chunk$set(echo = TRUE)
 <p style="text-align: center;">Here is a collection of things that i use.
 I hope to update this regularly</p>
 
-## R.
+
+## R and packages
 - R for Data Science for me is the definitive guide to Data Science in R. It is both highly approachable and can really get you quite far along with your data needs. 
 
 - *The* resource for building package in R.[R Packages](https://r-pkgs.org/) by Hadley Wickham.
+
+- [tidytext](https://www.tidytextmining.com/) for interpretable ways of gaining insight from text data
 
 ## Bloggers
 - Julia Silge has an incredible youtube channel, taking you through all things tidymodelling. Super useful resource, if, like me, you'd like a framework to rival scikit-learn that will keep you safely within the confines of Rstudio. She also has a [blog](https://juliasilge.com/)
@@ -46,7 +49,7 @@ I hope to update this regularly</p>
 
 - [Library of Babel](https://libraryofbabel.info/) makes you think about randomness
 
--[Pudding](https://pudding.cool/) is website dedicated to cool visualisation. Worth checking out for some inspo.
+-[Pudding](https://pudding.cool/) is website dedicated to cool visualization. Worth checking out for some inspo.
 
 
 ## Packages I dig

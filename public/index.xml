@@ -6,7 +6,17 @@
     <description>Recent content on Ezra Citrons Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 23 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://casualcoding.netlify.app/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 25 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://casualcoding.netlify.app/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>upgrade your visuals</title>
+      <link>https://casualcoding.netlify.app/upgrade-your-visuals/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://casualcoding.netlify.app/upgrade-your-visuals/</guid>
+      <description>Take your visualisation to the next This will be a three part series, the first will describe high, level how one can go about upgrading thier vis skills, some resources, and packages that we can use. We’ll run through an example in a subsequent post.
+Good, like really good visulisation Okay, i thought i was okay at vis before i saw this guy. I could get some data, tidy it to the form i liked, get something that looked okay.</description>
+    </item>
+    
     <item>
       <title>Eminem Lyric analysis with R</title>
       <link>https://casualcoding.netlify.app/eminem-lyric-analysis-with-r/</link>
@@ -86,8 +96,7 @@ what is a file what is a directory Good to be clear at the offset. A directory i
       <pubDate>Mon, 22 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://casualcoding.netlify.app/lyrics-scrape/</guid>
-      <description>Scraping lyrics title
- Title puns aside, I’ll be using the rvest package to scrape all Eminem song lyrics from here
+      <description>Scraping lyrics Title puns aside, I’ll be using the rvest package to scrape all Eminem song lyrics from here
 We will also need to clean up these columns using regex
 Now that we have our function to get the lyrics extract_lyrics_from_link and parse_lyrics to clean it up, we can simply loop over the number of songs on the website, and save all the lyrics. Ahh, the satisfaction of running a loop…</description>
     </item>
@@ -98,8 +107,17 @@ Now that we have our function to get the lyrics extract_lyrics_from_link and par
       <pubDate>Sat, 21 Mar 2020 21:48:51 -0700</pubDate>
       
       <guid>https://casualcoding.netlify.app/about/</guid>
-      <description>Hi, welcome to my blog! I&amp;rsquo;m a maths graduate now working as a data scientist in the city of London. I&amp;rsquo;ll be using this blog to write up topics that i find interesting, or just code that I find elegant and occasionally just general musings. Feel free to leave comments a get involved.
-blogdown package. The theme was forked from @jrutheiser/hugo-lithium-theme and modified by Yihui Xie.</description>
+      <description>Hi, welcome to my blog! I’m a maths graduate now working as a data scientist in the city of London. I’ll be using this blog to write up topics that i find interesting, or just code that I find elegant and occasionally just general musings. Feel free to leave comments a get involved.
+About my blog blogdown package. The theme was forked from [@jrutheiser/hugo-lithium-theme](https://github.com/jrutheiser/hugo-lithium-theme) and modified by Yihui Xie.</description>
+    </item>
+    
+    <item>
+      <title>CV</title>
+      <link>https://casualcoding.netlify.app/cv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://casualcoding.netlify.app/cv/</guid>
+      <description>  </description>
     </item>
     
     <item>

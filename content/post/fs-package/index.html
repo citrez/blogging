@@ -1,0 +1,69 @@
+---
+title: Be smart with your file manipulation
+author: R package build
+date: '2021-03-23'
+slug: use-fs-package-for-all-you-file-system-automoation-needs
+categories: ["file system"]
+tags: ["R","file system"]
+draft: true
+---
+
+
+
+<p>Classic problem I stumbled across recently. I had a bunch of files in a directory, and i wanted to rename them all at once. Perfect excuse, i thought to myself, to check out the fs (in R) package for manipulating files.</p>
+<div id="what-is-a-file-what-is-a-directory" class="section level2">
+<h2>What is a file what is a directory</h2>
+<p>Good to be clear at the offset. A directory is where you store your files.
+They call it a tree structure, because it looks like a tree. Take a look at one of the directories used to make this blog.</p>
+<pre><code>## ..
+## ├── dont-reinvent-the-wheel
+## ├── fs-package
+## ├── lyric_analysis
+## ├── lyrics_scrape
+## ├── purrr-the-most-underrated-package-in-the-tidyverse
+## ├── simulation
+## ├── understanding-what-is-possible-over-remembering-how-to-do-it
+## ├── upgrade-your-visuals
+## └── why-every-good-data-scientist-should-consider-blogging</code></pre>
+<p>fs has a set of functions to deal with both files and directories.</p>
+</div>
+<div id="what-is-the-game" class="section level2">
+<h2>What is the game?</h2>
+<p>The game is very simple, creating, deleting, moving and changing the name of files and directories. That’s it, its not rocket science. Its very simple, im sure you’ve all done all of these things before. All we are going to discuss is a different (more automatable) way of doing these things, in the hope that it will save you time for large batch jobs.</p>
+</div>
+<div id="create-a-folder-to-play-with" class="section level1">
+<h1>create a folder to play with</h1>
+<p>First, lets see where you are. With computers, at any given point you are somewhere in your machine. Where are you? well you can find out using path_wd()</p>
+<pre><code>## /Users/ezracitron/Documents/repos/blogging/content/post/fs-package</code></pre>
+<p>lets make a directory, called tester</p>
+<p>lets put 10 folders in, called folder_1, folder_2 etc. Here comes the power of working with fs rather than doing things manually. Now we can just loop, or create with vectorised operations.</p>
+<p>if we wanted to delete a few, its be just as easy.</p>
+<p>inspect files using a tree</p>
+<pre><code>## tester
+## ├── folder_1
+## │   └── my_file.csv
+## ├── folder_2
+## ├── folder_3
+## ├── folder_4
+## └── folder_5</code></pre>
+<p>another way of looking is to chuck it into a dataframe to get all the info. this has the file path, whether it is a file or dir, the size, permissions, when it was last modified and more…</p>
+<pre><code>## # A tibble: 5 x 18
+##   path        type    size permissions modification_time   user  group device_id
+##   &lt;fs::path&gt;  &lt;fct&gt;  &lt;fs:&gt; &lt;fs::perms&gt; &lt;dttm&gt;              &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt;
+## 1 tester/fol… direc…    96 rwxr-xr-x   2021-03-31 14:53:15 ezra… staff  16777222
+## 2 tester/fol… direc…    64 rwxr-xr-x   2021-03-31 14:53:15 ezra… staff  16777222
+## 3 tester/fol… direc…    64 rwxr-xr-x   2021-03-31 14:53:15 ezra… staff  16777222
+## 4 tester/fol… direc…    64 rwxr-xr-x   2021-03-31 14:53:15 ezra… staff  16777222
+## 5 tester/fol… direc…    64 rwxr-xr-x   2021-03-31 14:53:15 ezra… staff  16777222
+## # … with 10 more variables: hard_links &lt;dbl&gt;, special_device_id &lt;dbl&gt;,
+## #   inode &lt;dbl&gt;, block_size &lt;dbl&gt;, blocks &lt;dbl&gt;, flags &lt;int&gt;, generation &lt;dbl&gt;,
+## #   access_time &lt;dttm&gt;, change_time &lt;dttm&gt;, birth_time &lt;dttm&gt;</code></pre>
+<p>lets end off this exploration by leaving no trace and deleting our tester directory</p>
+<p>Done.</p>
+<div id="manipulate-file-paths" class="section level2">
+<h2>manipulate file paths</h2>
+<p>If you ever thought, ’ i cant be bother to write out “my/path/to/my/file/file.txt”, let <code>fs::path()</code> do the work <code>fs::path("my/path/to","my","file","file", ext = "txt")</code> the benefit here, as with all fs functions, they are vectorised. So if you wanted to make 20 file path in the same directory called my/path/to/my/file/file1.txt,my/path/to/my/file/file2.txt .. etc its as simple as <code>fs::path("my/path/to","my","file","file",1:20, ext = "txt")</code>. Vectorised functions are an important thing to understand in R, but once you understand vectorised functions, it’ll change the way you understand R - check out my thoughts about it here.</p>
+<p><code>fs::path_wd()</code> is tells you where you are.
+<code>fs::dir_ls('.')</code> is also your friend, it tell what is in the place you are in.</p>
+</div>
+</div>

@@ -99,9 +99,9 @@ The purrr package has this useful function which applies my `possibly_extract_so
 
 library(readr)
 
-for (i in 198:217) {
-  readr::write_csv(possibly_extract_song_and_lyrics(i),paste0("content/data/",i,".csv"))
-}
+# for (i in 336:340) {
+#   readr::write_csv(possibly_extract_song_and_lyrics(i),paste0("content/data/",i,".csv"))
+# }
 
 ```
 
@@ -118,7 +118,7 @@ df <- purrr::map_dfr( song_files , read_csv  )
 
 ```
 
-I then save all the songs locally, so i dont need to re download them every time
+I then save all the songs locally, so i don't need to re download them every time
 now lets clean everything up with a bunch of parsing functions for the messy song and lyrics columns.
 
 ```{r}
@@ -132,26 +132,38 @@ df <- df %>%
 add album info. Ill add the album for the first song in the album, and then fill the rest in (downwards)
 
 ```{r}
+
+album_vector <- map2(
+  .x = c(
+    "Infinite (1996)",
+    "Slim Shady EP (1998)",
+    "Slim Shady LP (1999)",
+    "The Marshall Mathers LP (2000)",
+    "The Eminem Show (2002)",
+    "Straight From The Lab (2003)",
+    "Encore (2004)",
+    "Curtain Call: The Hits (2005)",
+    "Eminem Presents The Re-Up (2006)",
+    "Realapse (2009)",
+    "Relapse: Refill (2009)",
+    "Recovery (2010)",
+    "Straight From The Vault (2011)",
+    "The Marshall Mathers LP 2 (2013)",
+    "Shady XV (2014)",
+    "Revival (2017)",
+    "Kamikaze (2018)",
+    "Music To Be Murdered By (2020)",
+    "Music To Be Murdered By - Side B (2020)"
+  ),
+  .y = c(11, 8, 22, 19, 20, 7, 23, 23, 9, 22, 7, 19, 11, 22, 13, 19, 13, 20, 16),
+  ~ rep(.x, .y)
+) %>% unlist()
+
 df <- df %>% 
-  mutate(album = 
-           case_when(
-             song == "Infinite" ~ "Infinite (1996)",
-             song == "Intro Slim Shady" ~ "Slim Shady EP (1998)",
-             song == "Public Service Announcement Skit" ~ "Slim Shady LP (1999)",
-             song == "Public Service Announcement 2000 Skit" ~"The Marshall Mathers LP (2000)",
-             song == "Curtains Up Skit" ~  "The Eminem Show (2002)",
-             song == "Monkey See Monkey Do" ~  "Straight From The Lab (2003)",
-             song == "Curtains Up Encore Version" ~  "Encore (2004)",
-             song == "Intro" ~  "Curtain Call: The Hits (2005)",
-             song == "Shady Narcotics Eminem Intro" ~  "Eminem Presents The Re-Up (2006)"
-
-                            ) )%>% 
-  fill(album,.direction = "down") 
-
+  mutate(album = album_vector)
 
 df%>% count(album)
 ```
-
 
 
 
